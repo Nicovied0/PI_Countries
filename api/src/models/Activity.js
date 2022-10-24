@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 // Exportamos una funcion que define el modelo
-// Luego le injectamos la conexion a sequelize.
+
 
 
 // [ ] Actividad Turística con las siguientes propiedades:
@@ -9,6 +9,8 @@ const { DataTypes } = require('sequelize');
 // Duración
 // Temporada (Verano, Otoño, Invierno o Primavera)
 
+
+// Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('activity', {
