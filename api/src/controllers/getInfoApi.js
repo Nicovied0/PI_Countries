@@ -8,7 +8,7 @@ const getApiInfo = async () => {
       name: c.name.common,
       flag: c.flags[0],
       continent: c.continents[0],
-      capital: c.capital,
+      capital: c.capital != null ? c.capital : 'No se encontro capital',
       subregion: c.subregion,
       area: c.area,
       population: c.population
