@@ -1,6 +1,6 @@
 const { Router } = require('express')
 const router = Router()
-const { Country , Activity } = require('../db')
+const { Country, Activity } = require('../db')
 const { getDbInfo } = require('../controllers/getInfoApi')
 
 router.get('/', async (req, res) => {
@@ -12,28 +12,28 @@ router.get('/', async (req, res) => {
       searchByName.length ?
         res.status(200).send(searchByName) :
         res.status(404).send('The country was not found!')
-    }else{
+    } else {
       res.send(info)
     }
   } catch {
-    res.status(404).send('Error in get Countries')
+    res.status(404).send('Error in get Countries.')
   }
 })
 
 router.get('/:id', async (req, res) => {
-  try{
+  try {
     const { id } = req.params
     let info = await getDbInfo()
-    if(id){
+    if (id) {
       let searchById = await info.filter(el => el.id == id.toUpperCase())
       searchById.length ?
-      res.status(200).send(searchById) :
-      res.status(404).send(info)
-    }  
-  }catch{
-    res.status(404).send('Error in get Countries By ID ')
+        res.status(200).send(searchById) :
+        res.status(404).send('Wrong ID,please enter another.')
+    }
+  } catch {
+    res.status(404).send('Error in get Countries By ID.')
   }
-  
+
 })
 
 
