@@ -9,7 +9,7 @@ const countryRouter = require('./country');
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);  
-router.use('/country', countryRouter)
+router.use('/countries', countryRouter)
 
 
 module.exports = router;
