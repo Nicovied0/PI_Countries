@@ -57,8 +57,9 @@ const getDbInfo = async () => {
 }
 
 const getActivities = async () => {
-  const get = await Activity.findAll()
-  return get;
+  const getAct = await Activity.findAll()
+  console.log(getAct)
+  return getAct;
 }
 
 
