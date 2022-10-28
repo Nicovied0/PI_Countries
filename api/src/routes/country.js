@@ -18,7 +18,22 @@ router.get('/', async (req, res) => {
   } catch {
     res.status(404).send('Error in get Countries')
   }
+})
 
+router.get('/:id', async (req, res) => {
+  try{
+    const { id } = req.params
+    let info = await getDbInfo()
+    if(id){
+      let searchById = await info.filter(el => el.id == id.toUpperCase())
+      searchById.length ?
+      res.status(200).send(searchById) :
+      res.status(404).send(info)
+    }  
+  }catch{
+    res.status(404).send('Error in get Countries By ID ')
+  }
+  
 })
 
 
