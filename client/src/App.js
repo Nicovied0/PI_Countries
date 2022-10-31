@@ -5,11 +5,12 @@ import Home from './Components/Home/Home';
 function App() {
   return (
     <BrowserRouter>
-    <div className="App">
-      <Switch>
-        <Route exact path='/' component={LandingPage}></Route>
-        <Route exact path='/home' component={Home}></Route>
-      </Switch>
+      <div className="App">
+        <Switch>
+          <Route exact path='/' component={LandingPage}></Route>
+          <Route exact path='/home' component={Home}></Route>
+          <Route exact path='' ></Route>
+        </Switch>
       </div>
     </BrowserRouter>
   );
