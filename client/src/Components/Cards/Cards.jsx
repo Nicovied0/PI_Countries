@@ -19,7 +19,7 @@ export default function Cards() {
       {countries?.map((country) => {
         return (
           <div key={country.id}>
-            <Link to={'details'}>
+            <Link to={'/home/' + country.id}>
               <Card
                 name={country.name}
                 flag={country.flag}
