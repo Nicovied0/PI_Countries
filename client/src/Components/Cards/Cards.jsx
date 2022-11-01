@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { getCountries } from "../../Redux/actions/index";
 import Card from "../Card/Card";
 
@@ -15,17 +16,18 @@ export default function Cards() {
 
   return (
     <div>
-      {
-      countries?.map((country) => {
+      {countries?.map((country) => {
         return (
           <div key={country.id}>
-            <Card
-              name={country.name}
-              flag={country.flag}
-              continent={country.continent}
-              capital={country.capital}
-              population={country.population}
-            />
+            <Link to={'details'}>
+              <Card
+                name={country.name}
+                flag={country.flag}
+                continent={country.continent}
+                capital={country.capital}
+                population={country.population}
+              />
+            </Link>
           </div>
         );
       })}

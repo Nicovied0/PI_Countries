@@ -1,9 +1,10 @@
-import { GET_COUNTRIES } from '../../Const/Const'
+import { GET_COUNTRIES, GET_DETAILS } from '../../Const/Const'
 // GET_DETAIL, GET_ACTIVITIES, SEARCH_COUNTRIES, POST_ACTIVITIES
 
 const initialState = {
   countries: [],
   allCountries: [],
+  details: []
 }
 
 export default function rootReducer(state = initialState, action) {
@@ -14,6 +15,11 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         countries: action.payload,
         allCountries: action.payload
+      }
+    case GET_DETAILS:
+      return {
+        ...state,
+        details: action.payload
       }
 
     default:
