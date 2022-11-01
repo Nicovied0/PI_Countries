@@ -15,6 +15,7 @@ export function getCountries() {
         }
     }
 }
+
 export function getDetails(id) {
     return async function (dispatch) {
         try {

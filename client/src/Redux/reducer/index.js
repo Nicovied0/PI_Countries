@@ -1,10 +1,11 @@
 import { GET_COUNTRIES, GET_DETAILS, GET_ACTIVITIES } from '../../Const/Const'
-// GET_DETAIL, GET_ACTIVITIES, SEARCH_COUNTRIES, POST_ACTIVITIES
+// , SEARCH_COUNTRIES, POST_ACTIVITIES
 
 const initialState = {
   countries: [],
   allCountries: [],
-  details: []
+  details: [],
+  activities: []
 }
 
 export default function rootReducer(state = initialState, action) {
