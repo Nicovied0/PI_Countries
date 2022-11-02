@@ -14,7 +14,7 @@ const ActivityCreate = () => {
 
   return (
     <div>
-      ActivityCreate  
+      <form/>
       </div>
   )
 }
