@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_ACTIVITIES, GET_COUNTRIES, GET_DETAILS } from '../../Const/Const'
+import { GET_ACTIVITIES, GET_COUNTRIES, GET_DETAILS, POST_ACTIVITIES } from '../../Const/Const'
 // SEARCH_COUNTRIES, POST_ACTIVITIES 
 
 export function getCountries() {
@@ -31,7 +31,7 @@ export function getDetails(id) {
     }
 }
 
-export function getActivitys() {
+export function getActivities() {
     return async function (dispatch) {
         try {
             let json = await axios('http://localhost:3001/activities')
@@ -42,7 +42,20 @@ export function getActivitys() {
 
         } catch {
             alert('No activities found')
-            console.log('Error in get Activitys')
+            console.log('Error in get Activities')
+        }
+    }
+}
+export function postActivities(payload) {
+    return async function (dispatch) {
+        try {
+            await axios.post('http://localhost:3001/activities/', payload)
+            return dispatch({
+                type: POST_ACTIVITIES,
+            })
+
+        } catch {
+            console.log('Error in post activities')
         }
     }
 }

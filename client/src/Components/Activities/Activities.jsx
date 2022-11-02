@@ -2,7 +2,7 @@ import React from "react";
 import Activity from "../Activity/Activity";
 import { useSelector } from "react-redux";
 
-const Activities = (props) => {
+const Activities = () => {
   const activities = useSelector((state) => state.activities);
 
   return (

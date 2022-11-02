@@ -1,4 +1,4 @@
-import { GET_COUNTRIES, GET_DETAILS, GET_ACTIVITIES } from '../../Const/Const'
+import { GET_COUNTRIES, GET_DETAILS, GET_ACTIVITIES,POST_ACTIVITIES } from '../../Const/Const'
 // , SEARCH_COUNTRIES, POST_ACTIVITIES
 
 const initialState = {
@@ -27,6 +27,10 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         activities: action.payload
       }
+      case POST_ACTIVITIES:
+            return {
+                ...state
+            }
 
     default:
       return state;

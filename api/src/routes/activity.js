@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
     const getActivity = await getActivities()
     res.status(200).send(getActivity)
   } catch {
-    res.status(404).send('Error in get activitys')
+    res.status(404).send('Error in get activities')
   }
 })
 
@@ -24,6 +24,7 @@ router.post('/', async (req, res) => {
     season,
     countryId
   })
+  
   const countries = await Country.findAll({
     where: {
       id: countryId
