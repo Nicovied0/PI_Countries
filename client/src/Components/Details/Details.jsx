@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { getDetails } from "../../Redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 
-export const Details = (props) => {
+const Details = (props) => {
   const dispatch = useDispatch();
   const detailsCountry = useSelector((state) => state.details);
 
@@ -46,3 +46,6 @@ export const Details = (props) => {
     </div>
   );
 };
+
+
+export default Details
