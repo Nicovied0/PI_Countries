@@ -11,3 +11,17 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
+.button_home {
+  padding: 1rem;
+  border-radius: 2rem;
+  background-color: white;
+  color: black;
+  border: 2px solid #555555;
+}
+
+.button_home:hover {
+  background-color: #555555;
+  color: white;
+  cursor: pointer;
+}
