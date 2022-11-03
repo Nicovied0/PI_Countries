@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SearchBar from "../SearchBar/SearchBar";
 
 const NavBar = () => {
   return (
@@ -8,7 +9,7 @@ const NavBar = () => {
         <button>To Activities</button>
       </Link>
       <h2>Filters</h2>
-      <h3>Searchbar</h3>
+      <SearchBar/>
     </div>
   );
 };
