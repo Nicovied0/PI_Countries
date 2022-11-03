@@ -4,7 +4,7 @@ import SearchBar from "../SearchBar/SearchBar";
 
 const NavBar = () => {
   return (
-    <div>
+    <div >
       <Link to={"/activities"}>
         <button>To Activities</button>
       </Link>
