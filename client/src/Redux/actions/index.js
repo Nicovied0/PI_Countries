@@ -34,18 +34,18 @@ export function getDetails(id) {
 export function getActivities() {
     return async function (dispatch) {
         try {
-            let json = await axios('http://localhost:3001/activities')
+            let json = await axios.get('http://localhost:3001/activities')
             return dispatch({
                 type: GET_ACTIVITIES,
                 payload: json.data
-            })
+            });
 
         } catch {
-            alert('No activities found')
             console.log('Error in get Activities')
         }
     }
 }
+
 export function postActivities(payload) {
     return async function (dispatch) {
         try {

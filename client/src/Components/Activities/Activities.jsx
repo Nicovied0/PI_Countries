@@ -1,18 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Activity from "../Activity/Activity";
-import { useSelector } from "react-redux";
 import NavBar from "../Nav_bar/NavBar";
+import { getActivities } from "../../Redux/actions/index";
+
+
 
 const Activities = () => {
-  const activities = useSelector((state) => state.activities);
+  const dispatch = useDispatch();
+  const activities = useSelector((state) => state.activities)
+  // console.log(activities, "soy act de selector");
+
+  useEffect(() => {
+    dispatch(getActivities());
+  }, [dispatch]);
 
   return (
     <div>
-      <NavBar/>
+      <NavBar />
       <h2>Activitys</h2>
-      
+
       <div>
-        {activities.map((act) => {
+        {activities?.map((act) => {
+          console.log(activities);
           return (
             <div>
               <Activity
