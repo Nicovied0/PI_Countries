@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getActivities, postActivities } from "../../Redux/actions";
 
@@ -17,6 +17,7 @@ const ActivityCreate = () => {
       <form/>
       </div>
   )
+
 }
 
 export default ActivityCreate
