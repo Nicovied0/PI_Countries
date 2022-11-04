@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Activity from "../Activity/Activity";
 import NavBar from "../Nav_bar/NavBar";
-import { getActivities } from "../../Redux/actions/index";
+import { getActivities , orderByName} from "../../Redux/actions/index";
 
 const Activities = () => {
   const dispatch = useDispatch();

@@ -22,7 +22,7 @@ module.exports = (sequelize) => {
       type: DataTypes.ENUM('1', '2', '3', '4', '5'),
     },
     duration: {
-      type: DataTypes.ENUM('30', '60', '90', '120', '150','180','210','240')
+      type: DataTypes.ENUM('30', '60', '90', '120', '150', '180', '210', '240')
     },
     season: {
       type: DataTypes.ENUM(
