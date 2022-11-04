@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { getDetails } from "../../Redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../Loader/Loader";
+import { Link } from "react-router-dom";
 
 const Details = (props) => {
   const dispatch = useDispatch();
@@ -14,15 +15,23 @@ const Details = (props) => {
 
   if (!detailsCountry) {
     return <h2>Error</h2>;
-  } else if (detailsCountry.length === 0 || detailsCountry[0].id !== props.match.params.id) {
+  } else if (
+    detailsCountry.length === 0 ||
+    detailsCountry[0].id !== props.match.params.id
+  ) {
     return <Loader />;
   } else {
-    console.log(detailsCountry[0].name)
+    console.log(detailsCountry[0].name);
     return (
       <div key={detailsCountry.id} className="detailE">
         <div className="detailContainer">
           {detailsCountry.length ? (
             <div className="detailContent">
+              <div>
+                <Link to="/home">
+                  <button>Home</button>
+                </Link>
+              </div>
               <img
                 className="objDetail"
                 src={detailsCountry[0].flag}
