@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getCountriesByName } from "../../Redux/actions/index";
+import style from "./SearchBar.module.css";
 
 const SearchBar = () => {
   const [search, setSearch] = useState("");
@@ -13,16 +14,24 @@ const SearchBar = () => {
     setSearch("");
   }
 
-  function onChangeInput(e){
+  function onChangeInput(e) {
     e.preventDefault();
-    setSearch(e.target.value)
+    setSearch(e.target.value);
   }
 
   return (
-    <form onSubmit={onSubmit}>
-      <input type="text" placeholder="Search Country" value={search} onChange={onChangeInput}></input>
-      <input type="submit" value="Go"></input>
-    </form>
+    <div className={style.container}>
+      <form onSubmit={onSubmit} className={style.form}>
+        <input
+          className={style.inputSearch}
+          type="text"
+          placeholder="Search Country"
+          value={search}
+          onChange={onChangeInput}
+        ></input>
+        <input className={style.inputButton} type="submit" value="Go"></input>
+      </form>
+    </div>
   );
 };
 

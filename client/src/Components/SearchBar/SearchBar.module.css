@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  background-color: #3f3f3f;
+  margin: 1rem;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.inputSearch {
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.inputButton {
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.51rem;
+  background-color: white;
+  color: black;
+  border: 2px solid #555555;
+}
+
+.inputButton:hover {
+  background-color: #555555;
+  color: white;
+  cursor: pointer;
+}

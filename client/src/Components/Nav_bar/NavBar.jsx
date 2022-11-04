@@ -11,7 +11,6 @@ const NavBar = () => {
       <Link to={"/activity"}>
         <button>Create Activities</button>
       </Link>
-      <SearchBar />
     </div>
   );
 };
