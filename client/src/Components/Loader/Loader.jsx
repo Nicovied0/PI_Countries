@@ -3,7 +3,7 @@ import style from './Loader.module.css'
 
 const Loader = () => {
   return (
-    <div>
+    <div class={style.container}>
       <div class={style.ldsRoller}>
         <div></div>
         <div></div>
