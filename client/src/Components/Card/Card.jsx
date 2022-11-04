@@ -1,17 +1,18 @@
-import React from 'react'
+import React from "react";
+import style from "./Card.module.css";
 
-const Card = ({name, flag,capital,continent,population}) => {
+const Card = ({ name, flag, capital, continent, population }) => {
   return (
-    <div className='cardContainer'>
+    <div className={style.cardContainer}>
       <h3>{name}</h3>
-      <img className= 'cardImg'src={flag} alt='Imagen no encontrada'/>
-      <div className='infoConteiner'>
-      <h5 className='content'>Capital: {capital}</h5>
-      <h5 className='content'>Continent: {continent}</h5>
-      <h5 className='content'>Population: {population}</h5> 
+      <img className={style.cardImg} src={flag} alt="Imagen no encontrada" />
+      <div className={style.cardDiv}>
+        <h5 className="content">Capital: {capital}</h5>
+        <h5 className="content">Continent: {continent}</h5>
+        <h5 className="content">Population: {population}</h5>
       </div>
-  </div>
-  )
-}
+    </div>
+  );
+};
 
-export default Card
+export default Card;

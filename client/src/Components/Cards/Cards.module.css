@@ -1,0 +1,28 @@
+.containerCards {
+  padding: 3rem;
+  color: #fff;
+  /* background-color: red; */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 100%;
+  margin: 1rem;
+  justify-content: space-evenly;
+}
+.Linkdecoration{
+  text-decoration: none;
+}
+.containeCardsDiv {
+  display: flex;
+  background: rgb(78, 78, 78);
+  margin: 2rem;
+  border-radius: 3rem;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 15rem;
+  height: 25rem;
+  align-items: center;
+  align-content: center;
+}

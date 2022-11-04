@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getCountries } from "../../Redux/actions/index";
 import Card from "../Card/Card";
+import style from "./Cards.module.css";
 
 export default function Cards() {
   const dispatch = useDispatch();
@@ -15,11 +16,11 @@ export default function Cards() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className={style.containerCards}>
       {countries?.map((country) => {
         return (
-          <div key={country.id}>
-            <Link to={'/home/' + country.id}>
+          <div className={style.containeCardsDiv} key={country.id}>
+            <Link to={"/home/" + country.id} className={style.Linkdecoration}>
               <Card
                 name={country.name}
                 flag={country.flag}
