@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { getCountries } from "../../Redux/actions/index";
 import Card from "../Card/Card";
 import style from "./Cards.module.css";
-import Loader from '../Loader/Loader'
+import Loader from "../Loader/Loader";
 
 export default function Cards() {
   const dispatch = useDispatch();
@@ -16,15 +16,11 @@ export default function Cards() {
     dispatch(getCountries());
   }, [dispatch]);
 
-  if(!countries){
-    return (
-      <h2>Error</h2>
-    )
-  }else if(countries.length === 0){
-    return (
-      <Loader/>
-    )
-  }else{
+  if (!countries) {
+    return <h2>Error</h2>;
+  } else if (countries.length === 0) {
+    return <Loader />;
+  } else {
     return (
       <div className={style.containerCards}>
         {countries?.map((country) => {
@@ -45,5 +41,4 @@ export default function Cards() {
       </div>
     );
   }
-  
 }
