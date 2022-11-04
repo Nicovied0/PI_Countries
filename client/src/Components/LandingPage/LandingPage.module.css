@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  background: url("../../Assets/countries.png");
+  background: url("../../Assets/backgroundGif.gif");
   width: 100%;
   height: 100vh;
   background-position: center;
