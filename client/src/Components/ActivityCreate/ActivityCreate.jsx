@@ -1,6 +1,8 @@
-// import React,{useEffect} from "react";
+import React from "react";
 // import { useDispatch, useSelector } from "react-redux";
 // import { getActivities, postActivities } from "../../Redux/actions";
+
+import NavBar from "../Nav_bar/NavBar"
 
 const ActivityCreate = () => {
   
@@ -14,8 +16,9 @@ const ActivityCreate = () => {
 
   return (
     <div>
-      <h2>crate</h2>
-      </div>
+      <NavBar/>
+      
+    </div>
   )
 
 }

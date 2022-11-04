@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { GET_ACTIVITIES, GET_COUNTRIES, GET_DETAILS, POST_ACTIVITIES } from '../../Const/Const'
-// SEARCH_COUNTRIES, POST_ACTIVITIES 
+import { GET_ACTIVITIES, GET_COUNTRIES, GET_DETAILS, POST_ACTIVITIES, SEARCH_COUNTRIES } from '../../Const/Const'
+
 
 export function getCountries() {
     return async function (dispatch) {
@@ -29,6 +29,20 @@ export function getDetails(id) {
             console.log('Error in Details Country')
         }
     }
+}
+export function getCountriesByName(search){
+    return async function(dispatch){
+        try{
+            let json = await axios.get('http://localhost:3001/countries?name=' + search)
+            return dispatch({
+                type: SEARCH_COUNTRIES,
+                payload: json.data
+            })
+        }catch{
+            console.log('The country was not found')
+        }
+    }
+
 }
 
 export function getActivities() {
