@@ -39,7 +39,7 @@ export function getCountriesByName(search){
                 payload: json.data
             })
         }catch{
-            console.log('The country was not found')
+            alert('The country was not found')
         }
     }
 
