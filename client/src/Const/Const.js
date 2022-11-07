@@ -7,8 +7,8 @@ export const GET_DETAILS = 'GET_DETAILS'
 
 //Ordering
 export const ORDER_BY_NAME = 'ORDER_BY_NAME'
-export const DESCENDENTE = 'DESCENDENTE'
-export const ASCENDENTE = 'ASCENDENTE'
+export const FALLING = 'FALLING'
+export const UPWARD = 'UPWARD'
 
 //Filters
 export const FILTER_BY_CONTINENT = 'FILTER_BY_CONTINENT'

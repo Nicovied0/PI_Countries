@@ -13,9 +13,9 @@ const Paginate = ({ countriesPerPage, countries, paginated }) => {
         {pageNumber &&
         pageNumber.map((number) => (
           <li key={number} className={styles.li}>
-            <a className={styles.a} href onClick={() => paginated(number)}>
+            <button className={styles.button} onClick={() => paginated(number)}>
               {number}
-            </a>
+            </button>
           </li>
         ))}
       </ul>

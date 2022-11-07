@@ -1,4 +1,4 @@
-import { GET_COUNTRIES, GET_DETAILS, GET_ACTIVITIES, POST_ACTIVITIES, SEARCH_COUNTRIES,  } from '../../Const/Const'
+import { GET_COUNTRIES, GET_DETAILS, GET_ACTIVITIES, POST_ACTIVITIES, SEARCH_COUNTRIES, ORDER_BY_NAME, UPWARD } from '../../Const/Const'
 
 
 const initialState = {
@@ -35,6 +35,31 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         activities: action.payload
       }
+
+    case ORDER_BY_NAME: {
+      let orderByName = action.payload === UPWARD ? state.countries.sort((a, b) => {
+        if (a.name < b.name) {
+          return -1;
+        }
+        if (a.name > b.name) {
+          return 1;
+        }
+        return 0;
+      }) :
+        state.countries.sort((a, b) => {
+          if (a.name < b.name) {
+            return 1;
+          }
+          if (a.name > b.name) {
+            return -1;
+          }
+          return 0;
+        })
+      return {
+        ...state,
+        countries: orderByName
+      }
+    }
 
     case POST_ACTIVITIES:
       return {

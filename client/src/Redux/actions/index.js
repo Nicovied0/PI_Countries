@@ -46,7 +46,7 @@ export function getCountriesByName(search) {
 }
 
 export function orderByName(payload) {
-    return {
+    return {    
         type: ORDER_BY_NAME,
         payload
     }
