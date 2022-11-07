@@ -1,6 +1,6 @@
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCountries } from "../../Redux/actions/index";
+import { getCountries, orderByName } from "../../Redux/actions/index";
 import { Link } from "react-router-dom";
 import { UPWARD, FALLING } from "../../Const/Const";
 import style from "./Cards.module.css";
@@ -26,10 +26,15 @@ export default function Cards() {
   };
 
   //Order by Name
-  
-  // const [, setOrdering] = useState("");
 
-  
+  const [, setOrdering] = useState(""); //state of alphabetical order
+
+  function handleSort(e) {
+    e.preventDefault();
+    dispatch(orderByName(e.target.value));
+    setCurrentPage(1);
+    setOrdering(`Ordering ${e.target.value}`);
+  }
 
   useEffect(() => {
     dispatch(getCountries());
@@ -39,10 +44,9 @@ export default function Cards() {
     <div>
       <div>
         <select
-         
-          // onChange={(e) => {
-          //   handleSort(e);
-          // }}
+          onChange={(e) => {
+            handleSort(e);
+          }}
         >
           <option>Order by name</option>
           <option value={UPWARD}> A-Z </option>
