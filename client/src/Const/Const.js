@@ -26,8 +26,8 @@ export const ALL_OF_ANTARCTICA = "Antarctica"
 
 //Const filters of population
 export const ORDER_BY_POPULATION = 'POPULATION'
-export const HIGHER_POPULATION = 'HIGHER_POPULATION'
-export const LESS_POPULATION = 'LESS_POPULATION'
+export const MAX_POPULATION = 'MAX_POPULATION'
+export const MIN_POPULATION = 'MIN_POPULATION'
 
 //Const to seasons
 export const SUMMER = 'SUMMER'

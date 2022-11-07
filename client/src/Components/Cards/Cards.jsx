@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCountries, orderByName } from "../../Redux/actions/index";
+import { getCountries, orderByName , orderByPopulation} from "../../Redux/actions/index";
 import { Link } from "react-router-dom";
-import { UPWARD, FALLING } from "../../Const/Const";
 import style from "./Cards.module.css";
 import Card from "../Card/Card";
 import Loader from "../Loader/Loader";
 import Paginate from "../Paginate/Paginate";
+import {
+  UPWARD,
+  FALLING,
+  MAX_POPULATION,
+  MIN_POPULATION,
+} from "../../Const/Const";
 
 export default function Cards() {
   const dispatch = useDispatch();
@@ -27,15 +32,25 @@ export default function Cards() {
 
   //Order by Name
 
-  const [, setOrdering] = useState(""); //state of alphabetical order
+  const [, setOrder] = useState(""); //state of ordenamient (name, population)
 
-  function handleSort(e) {
+  function nameSort(e) {
     e.preventDefault();
     dispatch(orderByName(e.target.value));
     setCurrentPage(1);
-    setOrdering(`Ordering ${e.target.value}`);
+    setOrder(`Ordering ${e.target.value}`);
   }
 
+  //Order by population
+  function populationSort(e) {
+    e.preventDefault();
+    dispatch(orderByPopulation(e.target.value));
+    setCurrentPage(1);
+    setOrder(`Ordering ${e.target.value}`);
+  }
+
+
+  //useEffect to dispatch actions
   useEffect(() => {
     dispatch(getCountries());
   }, [dispatch]);
@@ -43,14 +58,26 @@ export default function Cards() {
   return (
     <div>
       <div>
+
         <select
           onChange={(e) => {
-            handleSort(e);
+            nameSort(e);
           }}
         >
           <option>Order by name</option>
           <option value={UPWARD}> A-Z </option>
           <option value={FALLING}> Z-A </option>
+        </select>
+
+
+        <select
+          onChange={(e) => {
+            populationSort(e);
+          }}
+        >
+          <option>Order by population</option>
+          <option value={MAX_POPULATION}>Max population</option>
+          <option value={MIN_POPULATION}>Min population</option>
         </select>
       </div>
 
