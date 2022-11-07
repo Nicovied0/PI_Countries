@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCountries, orderByName , orderByPopulation} from "../../Redux/actions/index";
+import {
+  getCountries,
+  orderByName,
+  orderByPopulation,
+  filterByContinent
+} from "../../Redux/actions/index";
 import { Link } from "react-router-dom";
 import style from "./Cards.module.css";
 import Card from "../Card/Card";
@@ -11,14 +16,22 @@ import {
   FALLING,
   MAX_POPULATION,
   MIN_POPULATION,
+  ALL,
+  ALL_OF_AFRICA,
+  ALL_OF_N_AMERICA,
+  ALL_OF_S_AMERICA,
+  ALL_OF_ANTARCTICA,
+  ALL_OF_ASIA,
+  ALL_OF_EUROPE,
+  ALL_OF_OCEANIA,
 } from "../../Const/Const";
 
 export default function Cards() {
   const dispatch = useDispatch();
-  
+
   const countries = useSelector((state) => state.countries); //mapStateToProps.
   console.log(countries.length);
-  
+
   //Paginate
   const [currentPage, setCurrentPage] = useState(1);
   const [countriesPerPage] = useState(10);
@@ -27,14 +40,11 @@ export default function Cards() {
   const currentCountry = countries.slice(firstCountry, lastCountry);
   const [, setOrder] = useState(""); //state of ordenamient (name, population)
 
-
-  
   const paginated = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
   //Order by Name
-
   function nameSort(e) {
     e.preventDefault();
     dispatch(orderByName(e.target.value));
@@ -50,6 +60,11 @@ export default function Cards() {
     setOrder(`Ordering ${e.target.value}`);
   }
 
+  //Filter by continent
+  function handleFilterContinent(e) {
+    dispatch(filterByContinent(e.target.value));
+    setCurrentPage(1);
+  }
 
   //useEffect to dispatch actions
   useEffect(() => {
@@ -59,7 +74,6 @@ export default function Cards() {
   return (
     <div>
       <div>
-
         <select
           onChange={(e) => {
             nameSort(e);
@@ -68,7 +82,6 @@ export default function Cards() {
           <option value={UPWARD}> A-Z </option>
           <option value={FALLING}> Z-A </option>
         </select>
-
 
         <select
           onChange={(e) => {
@@ -79,8 +92,21 @@ export default function Cards() {
           <option value={MIN_POPULATION}>Min population</option>
         </select>
 
+        <select
+          className="filterAndOrder"
+          onChange={(e) => handleFilterContinent(e)}
+        >
+          <option value="continent">Continents</option>
+          <option value={ALL}>All</option>
+          <option value={ALL_OF_AFRICA}>Africa</option>
+          <option value={ALL_OF_ANTARCTICA}>Antarctica</option>
+          <option value={ALL_OF_N_AMERICA}>Nort America</option>
+          <option value={ALL_OF_S_AMERICA}>South America</option>
+          <option value={ALL_OF_ASIA}>Asia</option>
+          <option value={ALL_OF_EUROPE}>Europe</option>
+          <option value={ALL_OF_OCEANIA}>Oceania</option>
+        </select>
       </div>
-
 
       <div className={style.containerCards}>
         {currentCountry.length !== 0 ? (
