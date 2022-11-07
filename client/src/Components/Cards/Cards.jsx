@@ -15,24 +15,25 @@ import {
 
 export default function Cards() {
   const dispatch = useDispatch();
-
+  
   const countries = useSelector((state) => state.countries); //mapStateToProps.
   console.log(countries.length);
-
+  
   //Paginate
   const [currentPage, setCurrentPage] = useState(1);
   const [countriesPerPage] = useState(10);
   const lastCountry = currentPage * countriesPerPage;
   const firstCountry = lastCountry - countriesPerPage;
   const currentCountry = countries.slice(firstCountry, lastCountry);
+  const [, setOrder] = useState(""); //state of ordenamient (name, population)
 
+
+  
   const paginated = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
   //Order by Name
-
-  const [, setOrder] = useState(""); //state of ordenamient (name, population)
 
   function nameSort(e) {
     e.preventDefault();
@@ -64,7 +65,6 @@ export default function Cards() {
             nameSort(e);
           }}
         >
-          <option>Order by name</option>
           <option value={UPWARD}> A-Z </option>
           <option value={FALLING}> Z-A </option>
         </select>
@@ -75,11 +75,12 @@ export default function Cards() {
             populationSort(e);
           }}
         >
-          <option>Order by population</option>
           <option value={MAX_POPULATION}>Max population</option>
           <option value={MIN_POPULATION}>Min population</option>
         </select>
+
       </div>
+
 
       <div className={style.containerCards}>
         {currentCountry.length !== 0 ? (
