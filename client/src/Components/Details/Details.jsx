@@ -3,6 +3,7 @@ import { getDetails } from "../../Redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../Loader/Loader";
 import { Link } from "react-router-dom";
+import style from "./Details.module.css";
 
 const Details = (props) => {
   const dispatch = useDispatch();
@@ -23,37 +24,27 @@ const Details = (props) => {
   } else {
     console.log(detailsCountry[0].name);
     return (
-      <div key={detailsCountry.id} className="detailE">
-        <div className="detailContainer">
-          {detailsCountry.length ? (
-            <div className="detailContent">
-              <div>
-                <Link to="/home">
-                  <button>Home</button>
-                </Link>
-              </div>
-              <img
-                className="objDetail"
-                src={detailsCountry[0].flag}
-                alt="Imagen no encontrada"
-                width="250px"
-                height="175px"
-              />
-              <h1 className="objDetail">{detailsCountry[0].name}</h1>
-              <div className="obj2Detail">
-                <h2>Id: {detailsCountry[0].id}</h2>
-                <h2>Capital: {detailsCountry[0].capital}</h2>
-                <h2>Continent: {detailsCountry[0].continent}</h2>
-                <h2>Subregion: {detailsCountry[0].subregion}</h2>
-                <h2>Area: {detailsCountry[0].area} km2</h2>
-                <h2>Population: {detailsCountry[0].population}</h2>
-              </div>
-            </div>
-          ) : (
-            <div className="loading">
-              <p> Loading... </p>
-            </div>
-          )}
+      <div className={style.containerdetailsdiv}>
+        <div className={style.containerdiv}>
+          <div className={style.containerLink}>
+            <Link to="/home">
+              <button className={style.button_home}>Home</button>
+            </Link>
+          </div>
+          <img
+            className={style.img}
+            src={detailsCountry[0].flag}
+            alt="Imagen no't found"
+          />
+          <h1 className={style.h1}>{detailsCountry[0].name}</h1>
+          <div className={style.divDetails}>
+            <h3>Id: {detailsCountry[0].id}</h3>
+            <h3>Capital: {detailsCountry[0].capital}</h3>
+            <h3>Continent: {detailsCountry[0].continent}</h3>
+            <h3>Subregion: {detailsCountry[0].subregion}</h3>
+            <h3>Area: {detailsCountry[0].area} km2</h3>
+            <h3>Population: {detailsCountry[0].population}</h3>
+          </div>
         </div>
       </div>
     );
