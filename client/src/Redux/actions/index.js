@@ -39,14 +39,14 @@ export function getCountriesByName(search) {
                 payload: json.data
             })
         } catch {
-            alert('The country was not found')
+            alert(`No country was found that includes "${search}".`)
         }
     }
 
 }
 
 export function orderByName(payload) {
-    return {    
+    return {
         type: ORDER_BY_NAME,
         payload
     }

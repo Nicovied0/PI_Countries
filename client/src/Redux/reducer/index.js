@@ -8,6 +8,7 @@ const initialState = {
   activities: []
 }
 
+
 export default function rootReducer(state = initialState, action) {
 
   switch (action.type) {

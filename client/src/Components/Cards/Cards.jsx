@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import { getCountries } from "../../Redux/actions/index";
-import Card from "../Card/Card";
+import { Link } from "react-router-dom";
+import { UPWARD, FALLING } from "../../Const/Const";
 import style from "./Cards.module.css";
+import Card from "../Card/Card";
 import Loader from "../Loader/Loader";
-import { useState } from "react";
 import Paginate from "../Paginate/Paginate";
 
 export default function Cards() {
@@ -20,30 +20,39 @@ export default function Cards() {
   const lastCountry = currentPage * countriesPerPage;
   const firstCountry = lastCountry - countriesPerPage;
   const currentCountry = countries.slice(firstCountry, lastCountry);
-  // const [, setOrdering] = useState("");
 
   const paginated = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
+  //Order by Name
+  
+  // const [, setOrdering] = useState("");
+
+  
+
   useEffect(() => {
     dispatch(getCountries());
   }, [dispatch]);
 
-  if (!currentCountry) {
-    return <h2>Error</h2>;
-  } else if (currentCountry.length === 0) {
-    return <Loader />;
-  } else {
-    return (
-      <div className={style.container}>
-        <Paginate
-          countriesPerPage={countriesPerPage}
-          countries={countries.length}
-          paginated={paginated}
-        />
-        <div className={style.containerCards}>
-          {currentCountry?.map((country) => {
+  return (
+    <div>
+      <div>
+        <select
+         
+          // onChange={(e) => {
+          //   handleSort(e);
+          // }}
+        >
+          <option>Order by name</option>
+          <option value={UPWARD}> A-Z </option>
+          <option value={FALLING}> Z-A </option>
+        </select>
+      </div>
+
+      <div className={style.containerCards}>
+        {currentCountry.length !== 0 ? (
+          currentCountry?.map((country) => {
             return (
               <div className={style.containeCardsDiv} key={country.id}>
                 <Link
@@ -60,9 +69,18 @@ export default function Cards() {
                 </Link>
               </div>
             );
-          })}
-        </div>
+          })
+        ) : (
+          <Loader />
+        )}
       </div>
-    );
-  }
+      <div className={style.container}>
+        <Paginate
+          countriesPerPage={countriesPerPage}
+          countries={countries.length}
+          paginated={paginated}
+        />
+      </div>
+    </div>
+  );
 }
