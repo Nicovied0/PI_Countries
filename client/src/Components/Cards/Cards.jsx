@@ -6,6 +6,7 @@ import Card from "../Card/Card";
 import style from "./Cards.module.css";
 import Loader from "../Loader/Loader";
 import { useState } from "react";
+import Paginate from "../Paginate/Paginate";
 
 export default function Cards() {
   const dispatch = useDispatch();
@@ -19,11 +20,11 @@ export default function Cards() {
   const lastCountry = currentPage * countriesPerPage;
   const firstCountry = lastCountry - countriesPerPage;
   const currentCountry = countries.slice(firstCountry, lastCountry);
-  const [,setOrdering] = useState('')
+  // const [, setOrdering] = useState("");
 
-  const paginated = (pagenNum) =>{
-    setCurrentPage(1)
-  }
+  const paginated = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
   useEffect(() => {
     dispatch(getCountries());
@@ -35,22 +36,32 @@ export default function Cards() {
     return <Loader />;
   } else {
     return (
-      <div className={style.containerCards}>
-        {currentCountry?.map((country) => {
-          return (
-            <div className={style.containeCardsDiv} key={country.id}>
-              <Link to={"/home/" + country.id} className={style.Linkdecoration}>
-                <Card
-                  name={country.name}
-                  flag={country.flag}
-                  continent={country.continent}
-                  capital={country.capital}
-                  population={country.population}
-                />
-              </Link>
-            </div>
-          );
-        })}
+      <div className={style.container}>
+        <Paginate
+          countriesPerPage={countriesPerPage}
+          countries={countries.length}
+          paginated={paginated}
+        />
+        <div className={style.containerCards}>
+          {currentCountry?.map((country) => {
+            return (
+              <div className={style.containeCardsDiv} key={country.id}>
+                <Link
+                  to={"/home/" + country.id}
+                  className={style.Linkdecoration}
+                >
+                  <Card
+                    name={country.name}
+                    flag={country.flag}
+                    continent={country.continent}
+                    capital={country.capital}
+                    population={country.population}
+                  />
+                </Link>
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   }
