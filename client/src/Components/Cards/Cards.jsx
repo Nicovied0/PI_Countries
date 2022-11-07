@@ -5,12 +5,22 @@ import { getCountries } from "../../Redux/actions/index";
 import Card from "../Card/Card";
 import style from "./Cards.module.css";
 import Loader from "../Loader/Loader";
+import { useState } from "react";
 
 export default function Cards() {
   const dispatch = useDispatch();
 
-  const countries = useSelector((state) => state.countries);
+  const countries = useSelector((state) => state.countries); //mapStateToProps.
   console.log(countries.length);
+
+  //Paginate
+  const [currentPage, setCurrentPage] = useState(1);
+  const [countriesPerPage] = useState(10);
+  const lastCountry = currentPage * countriesPerPage;
+  const firstCountry = lastCountry - countriesPerPage;
+  const currentCountry = countries.slice(firstCountry, lastCountry);
+  const [,setOrdering] = useState('')
+
 
   useEffect(() => {
     dispatch(getCountries());
