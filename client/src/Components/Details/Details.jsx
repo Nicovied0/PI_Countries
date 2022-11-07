@@ -36,14 +36,16 @@ const Details = (props) => {
             src={detailsCountry[0].flag}
             alt="Imagen no't found"
           />
-          <h1 className={style.h1}>{detailsCountry[0].name}</h1>
-          <div className={style.divDetails}>
-            <h3>Id: {detailsCountry[0].id}</h3>
-            <h3>Capital: {detailsCountry[0].capital}</h3>
-            <h3>Continent: {detailsCountry[0].continent}</h3>
-            <h3>Subregion: {detailsCountry[0].subregion}</h3>
-            <h3>Area: {detailsCountry[0].area} km2</h3>
-            <h3>Population: {detailsCountry[0].population}</h3>
+          <div className={style.divInfo}>
+            <h1 className={style.h1}>{detailsCountry[0].name}</h1>
+            <div className={style.divDetails}>
+              <h3>Id: {detailsCountry[0].id}</h3>
+              <h3>Capital: {detailsCountry[0].capital}</h3>
+              <h3>Continent: {detailsCountry[0].continent}</h3>
+              <h3>Subregion: {detailsCountry[0].subregion}</h3>
+              <h3>Area: {detailsCountry[0].area} km2</h3>
+              <h3>Population: {detailsCountry[0].population}</h3>
+            </div>
           </div>
         </div>
       </div>

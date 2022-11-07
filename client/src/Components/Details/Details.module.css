@@ -7,21 +7,42 @@
   height: 100vh;
   justify-content: center;
 }
+.containerLink button {
+  margin-bottom: 0.5rem;
+}
 .containerdiv {
   background: #2d2d2d;
   align-content: center;
   padding: 3rem;
-  border-radius: 3rem;
+  width: 30%;
+  display: flex;
+  height: 60%;
+  max-height: 80%;
+  border-radius: 4rem;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.divInfo {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  height: 250px;
+  max-height: 250px;
+  max-width: 100%;
+}
+div h1 {
+  margin: 0.5rem 0rem;
+  font-size: 1.4em;
 }
 div h3 {
   margin: 0.3rem;
+  font-size: 1em;
 }
 .img {
-  display: flex;
-  width: 100%;
-  max-width: 30rem;
+  max-width: 100%;
+  height: 250px;
+  max-height: 250px;
   border-radius: 1rem;
-  margin: 1rem;
 }
 .divDetails {
   display: flex;
@@ -30,7 +51,6 @@ div h3 {
 }
 
 .button_home {
-  padding: 1rem;
   border-radius: 2rem;
   background-color: white;
   color: black;
