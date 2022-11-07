@@ -21,19 +21,22 @@ export default function Cards() {
   const currentCountry = countries.slice(firstCountry, lastCountry);
   const [,setOrdering] = useState('')
 
+  const paginated = (pagenNum) =>{
+    setCurrentPage(1)
+  }
 
   useEffect(() => {
     dispatch(getCountries());
   }, [dispatch]);
 
-  if (!countries) {
+  if (!currentCountry) {
     return <h2>Error</h2>;
-  } else if (countries.length === 0) {
+  } else if (currentCountry.length === 0) {
     return <Loader />;
   } else {
     return (
       <div className={style.containerCards}>
-        {countries?.map((country) => {
+        {currentCountry?.map((country) => {
           return (
             <div className={style.containeCardsDiv} key={country.id}>
               <Link to={"/home/" + country.id} className={style.Linkdecoration}>
