@@ -133,6 +133,18 @@ const ActivityCreate = () => {
                   <option value={"120"}>
                     120
                   </option>
+                  <option value={"130"}>
+                    150
+                  </option>
+                  <option value={"180"}>
+                    180
+                  </option>
+                  <option value={"210"}>
+                    210
+                  </option>
+                  <option value={"240"}>
+                    240
+                  </option>
                 </select>
                 {errors.duration && <p>{errors.duration}</p>}
               </div>
