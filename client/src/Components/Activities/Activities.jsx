@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Activity from "../Activity/Activity";
 import NavBar from "../Nav_bar/NavBar";
+import style from './Activities.module.css'
 import { getActivities } from "../../Redux/actions/index";
 
 const Activities = () => {
@@ -16,14 +17,14 @@ const Activities = () => {
   return (
     <div>
       <NavBar />
-      <h2>Activitys</h2>
+      <h2>Activities</h2>
 
-      <div>
+      <div className={style.container}>
         {activities?.map((act) => {
           console.log(activities, "soy el de act");
           console.log(act.id);
           return (
-            <div key={act.id}>
+            <div key={act.id} className={style.containerActivities}>
               <Activity
                 key={act.id}
                 name={act.name}

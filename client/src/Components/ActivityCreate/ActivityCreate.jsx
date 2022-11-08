@@ -133,7 +133,7 @@ const ActivityCreate = () => {
                   <option value={"120"}>
                     120
                   </option>
-                  <option value={"130"}>
+                  <option value={"150"}>
                     150
                   </option>
                   <option value={"180"}>

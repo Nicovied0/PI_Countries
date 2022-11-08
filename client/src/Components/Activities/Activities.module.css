@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  height: 100vh;  
+  flex-direction: row;
+  justify-content: center;
+}
+.containerActivities {
+  display: flex;
+  flex-direction: row;
+}

@@ -1,10 +1,11 @@
 import React from "react";
 import "../Activities/Activities";
+import style from './Activity.module.css'
 
 const Activity = ({ name, duration, season, difficulty, countryId }) => {
   console.log(countryId)
   return (
-    <div>
+    <div className={style.container}>
       <h2>{name}</h2>
       <h3>Duration: {duration}</h3>
       <h3>Season: {season}</h3>
