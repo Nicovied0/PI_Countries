@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_ACTIVITIES, GET_COUNTRIES, GET_DETAILS, POST_ACTIVITIES, SEARCH_COUNTRIES, ORDER_BY_NAME,ORDER_BY_POPULATION,FILTER_BY_CONTINENT } from '../../Const/Const'
+import { GET_ACTIVITIES, GET_COUNTRIES, GET_DETAILS, POST_ACTIVITIES, SEARCH_COUNTRIES, ORDER_BY_NAME, ORDER_BY_POPULATION, FILTER_BY_CONTINENT, FILTER_BY_ACTIVITIES } from '../../Const/Const'
 
 
 export function getCountries() {
@@ -61,9 +61,16 @@ export function orderByPopulation(payload) {
         payload
     }
 }
+
 export function filterByContinent(payload) {
     return {
         type: FILTER_BY_CONTINENT,
+        payload
+    }
+}
+export function filterByActivity(payload) {
+    return {
+        type: FILTER_BY_ACTIVITIES,
         payload
     }
 }

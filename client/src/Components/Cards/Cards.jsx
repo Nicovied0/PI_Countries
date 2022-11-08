@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getCountries,
+  getActivities,
   orderByName,
   orderByPopulation,
-  filterByContinent
+  filterByContinent,
+  filterByActivity,
 } from "../../Redux/actions/index";
 import { Link } from "react-router-dom";
 import style from "./Cards.module.css";
@@ -30,6 +32,7 @@ export default function Cards() {
   const dispatch = useDispatch();
 
   const countries = useSelector((state) => state.countries); //mapStateToProps.
+  const activities = useSelector((state) => state.activities);
   console.log(countries.length);
 
   //Paginate
@@ -66,9 +69,16 @@ export default function Cards() {
     setCurrentPage(1);
   }
 
+  //Filter by Activities
+  function handleFilterActivity(e) {
+    dispatch(filterByActivity(e.target.value));
+    setCurrentPage(1);
+  }
+
   //useEffect to dispatch actions
   useEffect(() => {
     dispatch(getCountries());
+    dispatch(getActivities());
   }, [dispatch]);
 
   return (
@@ -104,6 +114,13 @@ export default function Cards() {
           <option value={ALL_OF_ASIA}>Asia</option>
           <option value={ALL_OF_EUROPE}>Europe</option>
           <option value={ALL_OF_OCEANIA}>Oceania</option>
+        </select>
+
+        <select onChange={(e) => handleFilterActivity(e)}>
+          <option value="All">Activities</option>
+          {activities.map((v) => (
+            <option value={v.name}>{v.name}</option>
+          ))}
         </select>
       </div>
 

@@ -192,9 +192,9 @@ const ActivityCreate = () => {
               <div>
                 <select className="i" onChange={(e) => handleSelect(e)}>
                   <option className="op"> Countries </option>
-                  {countries.map((v) => (
-                    <option className="op" value={v.id}>
-                      {v.name}
+                  {countries.map((e) => (
+                    <option className="op" value={e.id}>
+                      {e.name}
                     </option>
                   ))}
                 </select>
