@@ -2,6 +2,7 @@ import React from "react";
 import "../Activities/Activities";
 
 const Activity = ({ name, duration, season, difficulty, countryId }) => {
+  console.log(countryId)
   return (
     <div className="divActivityContainer">
       <h2 className="h2Activity">{name}</h2>

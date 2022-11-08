@@ -23,7 +23,7 @@ const Activities = () => {
           console.log(activities, "soy el de act");
           console.log(act.id);
           return (
-            <div>
+            <div key={act.id}>
               <Activity
                 key={act.id}
                 name={act.name}

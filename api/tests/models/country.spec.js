@@ -17,6 +17,12 @@ describe('Country model', () => {
       it('should work when its a valid name', () => {
         Country.create({ name: 'Argentina' });
       });
+      it('should work when its a valid name', () => {
+        Country.create({ name: 'Mexico' });
+      });
+      it('should work when its a valid name', () => {
+        Country.create({ name: 'Brazil' });
+      });
     });
   });
 });

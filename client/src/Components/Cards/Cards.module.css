@@ -4,7 +4,6 @@
 }
 .containerCards {
   padding: 3rem;
-  color: #fff;
   /* background-color: red; */
   display: flex;
   flex-direction: row;

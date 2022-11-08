@@ -12,6 +12,7 @@ export function getCountries() {
             });
         } catch (error) {
             console.log(error)
+            alert('Error, the app is not working. Please try again later.')
         }
     }
 }
@@ -27,6 +28,7 @@ export function getDetails(id) {
 
         } catch {
             console.log('Error in Details Country')
+            alert('Error, the app is not working. Please try again later.')
         }
     }
 }

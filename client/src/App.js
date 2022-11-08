@@ -14,8 +14,8 @@ function App() {
         <Switch>
           <Route exact path='/' component={LandingPage} />
           <Route exact path='/home' component={Home} />
-          <Route exact path='/activities' component={Activities} />
-          <Route exact path='/activity' component={ActivityCreate} />
+          <Route exact path='/activitiesList' component={Activities} />
+          <Route exact path='/activities' component={ActivityCreate} />
           <Route exact path='/home/:id' component={Details} />
           <Route path='/' component={NotFound} />
         </Switch>

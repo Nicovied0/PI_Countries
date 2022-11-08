@@ -96,7 +96,6 @@ export default function Cards() {
           className="filterAndOrder"
           onChange={(e) => handleFilterContinent(e)}
         >
-          <option value="continent">Continents</option>
           <option value={ALL}>All</option>
           <option value={ALL_OF_AFRICA}>Africa</option>
           <option value={ALL_OF_ANTARCTICA}>Antarctica</option>
