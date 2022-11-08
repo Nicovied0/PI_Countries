@@ -29,3 +29,14 @@
   align-content: center;
   justify-content: space-evenly;
 }
+select{
+  padding: 0.2rem;
+  margin:  0.5rem; background-color: #1e90ff;
+  color: #ffffff; 
+
+}
+
+select:hover{
+  background-color:  #004ea2;
+
+}

@@ -1,8 +1,8 @@
 import React from "react";
 import Cards from "../Cards/Cards";
-import Filters from "../Filters/Filters";
+// import Filters from "../Filters/Filters";
+// import SearchBar from "../SearchBar/SearchBar";
 import NavBar from "../Nav_bar/NavBar";
-import SearchBar from "../SearchBar/SearchBar";
 import style from "./Home.module.css";
 
 const Home = () => {
@@ -10,8 +10,7 @@ const Home = () => {
     <div className={style.container}>
       <div className={style.subContainer}>
         <NavBar />
-        <SearchBar />
-        <Filters />
+        
       </div>
       <Cards />
     </div>

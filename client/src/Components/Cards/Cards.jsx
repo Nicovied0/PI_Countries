@@ -83,8 +83,9 @@ export default function Cards() {
 
   return (
     <div>
-      <div>
+      <div className={style.selectdiv}>
         <select
+          className={style.select}
           onChange={(e) => {
             nameSort(e);
           }}
@@ -94,6 +95,7 @@ export default function Cards() {
         </select>
 
         <select
+          className={style.select}
           onChange={(e) => {
             populationSort(e);
           }}
@@ -103,7 +105,7 @@ export default function Cards() {
         </select>
 
         <select
-          className="filterAndOrder"
+          className={style.select}
           onChange={(e) => handleFilterContinent(e)}
         >
           <option value={ALL}>All</option>
@@ -116,7 +118,10 @@ export default function Cards() {
           <option value={ALL_OF_OCEANIA}>Oceania</option>
         </select>
 
-        <select onChange={(e) => handleFilterActivity(e)}>
+        <select
+          className={style.select}
+          onChange={(e) => handleFilterActivity(e)}
+        >
           <option value="All">Activities</option>
           {activities.map((v) => (
             <option value={v.name}>{v.name}</option>

@@ -48,6 +48,28 @@ const Details = (props) => {
             </div>
           </div>
         </div>
+        {
+          detailsCountry[0].activities.length !== 0 ?
+          <div className={style.containerdiv2}>
+          {detailsCountry[0].activities?.map((el) => {
+            console.log(detailsCountry[0].activities.length, 'soy console')
+            return (
+              <div key={el}>
+                <Link className="linkDetail" to="/activitiesList">
+                  <h2>Activities</h2>
+                </Link>
+                <div className="obj3Detail">
+                  <h3>{el.name}</h3>
+                  <h3>Difficulty: {el.difficulty}</h3>
+                  <h3>Duration: {el.duration}</h3>
+                  <h3>Season: {el.season}</h3>
+                </div>
+              </div>
+            );
+          })}
+        </div> : <></>
+        }
+        
       </div>
     );
   }
