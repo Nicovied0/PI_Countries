@@ -102,9 +102,8 @@ const ActivityCreate = () => {
             <form className={style.form} onSubmit={handleSubmit}>
               <h2> Create an Activity </h2>
               <div className={style.divInput}>
-                <label className="labelActivity">Name of the activities</label>
+                <label>Name of the activities</label>
                 <input
-                  className="i"
                   type="text"
                   placeholder="Place the Activity...  "
                   value={input.name}
@@ -112,30 +111,30 @@ const ActivityCreate = () => {
                   autoComplete="off"
                   onChange={handleChange}
                 />
-                {errors.name && <p className="e">{errors.name}</p>}
+                {errors.name && <p>{errors.name}</p>}
               </div>
             
               <div  className={style.divInput}>
                 <label>Activity duration in minutes</label>
                 <select
-                  nvalue={input.duration}
+                  value={input.duration}
                   name="duration"
                   onChange={handleChange}
                 >
-                  <option className="op" value={"30"}>
+                  <option value={"30"}>
                     30
                   </option>
-                  <option className="op" value={"60"}>
+                  <option value={"60"}>
                     60
                   </option>
-                  <option className="op" value={"90"}>
+                  <option value={"90"}>
                     90
                   </option>
-                  <option className="op" value={"120"}>
+                  <option value={"120"}>
                     120
                   </option>
                 </select>
-                {errors.duration && <p className="e">{errors.duration}</p>}
+                {errors.duration && <p>{errors.duration}</p>}
               </div>
 
               <div  className={style.divInput}>
@@ -145,58 +144,57 @@ const ActivityCreate = () => {
                   value={input.difficulty}
                   onChange={(e) => handleChange(e)}
                 >
-                  <option className="op" value={"1"}>
+                  <option value={"1"}>
                     1
                   </option>
-                  <option className="op" value={"2"}>
+                  <option value={"2"}>
                     2
                   </option>
-                  <option className="op" value={"3"}>
+                  <option value={"3"}>
                     3
                   </option>
-                  <option className="op" value={"4"}>
+                  <option value={"4"}>
                     4
                   </option>
-                  <option className="op" value={"5"}>
+                  <option value={"5"}>
                     5
                   </option>
                 </select>
                 
-                {errors.difficulty && <p className="e"> {errors.difficulty}</p>}
+                {errors.difficulty && <p> {errors.difficulty}</p>}
               </div>
 
 
               <div  className={style.divInput}>
                 <label>Season</label>
                 <select
-                  className="i"
                   name="season"
                   value={input.season}
                   onChange={(e) => handleChange(e)}
                 >
-                  <option className="op" value={WINTER}>
+                  <option value={WINTER}>
                     Winter
                   </option>
-                  <option className="op" value={SUMMER}>
+                  <option value={SUMMER}>
                     Summer
                   </option>
-                  <option className="op" value={FALL}>
+                  <option value={FALL}>
                     Fall
                   </option>
-                  <option className="op" value={SPRING}>
+                  <option value={SPRING}>
                     Spring
                   </option>
                 </select>
-                {errors.season && <p className="e">{errors.season}</p>}
+                {errors.season && <p>{errors.season}</p>}
               </div>
-              {errors.countryId && <p className="e">{errors.countryId}</p>}
+              {errors.countryId && <p>{errors.countryId}</p>}
 
               <div  className={style.divInput}>
                 <label>Enter country</label>
-                <select className="i" onChange={(e) => handleSelect(e)}>
-                  <option className="op"> Countries </option>
+                <select onChange={(e) => handleSelect(e)}>
+                  <option > Countries </option>
                   {countries.map((e) => (
-                    <option className="op" value={e.id}>
+                    <option value={e.id}>
                       {e.name}
                     </option>
                   ))}
@@ -212,7 +210,7 @@ const ActivityCreate = () => {
                       value="X"
                       onClick={() => handleDelete(country)}
                     />
-                    <p className="pOfCountry">{country}</p>
+                    <p>{country}</p>
                   </div>
                 ))}
               </div>

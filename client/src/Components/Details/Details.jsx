@@ -55,10 +55,10 @@ const Details = (props) => {
             console.log(detailsCountry[0].activities.length, 'soy console')
             return (
               <div key={el}>
-                <Link className="linkDetail" to="/activitiesList">
+                <Link to="/activitiesList">
                   <h2>Activities</h2>
                 </Link>
-                <div className="obj3Detail">
+                <div>
                   <h3>{el.name}</h3>
                   <h3>Difficulty: {el.difficulty}</h3>
                   <h3>Duration: {el.duration}</h3>

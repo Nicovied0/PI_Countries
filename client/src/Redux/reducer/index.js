@@ -94,9 +94,9 @@ export default function rootReducer(state = initialState, action) {
       const continentFilteredBA = filtredByActivities.filter((c) => { return c.activities.find((c) => { return c.name === action.payload; }); });
 
       if (action.payload === 'All') {
-        return { 
-          ...state, 
-          countries: filtredByActivities 
+        return {
+          ...state,
+          countries: filtredByActivities
         }
       } else {
         return {
