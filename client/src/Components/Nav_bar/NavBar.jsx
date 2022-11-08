@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import icon from "../../Assets/favicon.png";
 import style from "./NavBar.module.css";
 import SearchBar from "../SearchBar/SearchBar";
-import Filters from "../Filters/Filters";
 
 const NavBar = () => {
   return (
@@ -24,9 +23,6 @@ const NavBar = () => {
       </div>
       <div className={style.container2}>
         <SearchBar />
-      </div>
-      <div className={style.container2}>
-        <Filters />
       </div>
     </div>
   );
