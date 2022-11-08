@@ -40,6 +40,17 @@
   max-height: 250px;
   max-width: 100%;
 }
+.Link{
+  color: #fff;
+  margin: 0;
+}
+.divActivitiesInfo{
+  margin: 0;
+}
+
+.divActivities{
+  margin: 1rem 0;
+}
 div h1 {
   margin: 0.5rem 0rem;
   font-size: 1.4em;

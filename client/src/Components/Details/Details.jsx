@@ -54,11 +54,11 @@ const Details = (props) => {
           {detailsCountry[0].activities?.map((el) => {
             console.log(detailsCountry[0].activities.length, 'soy console')
             return (
-              <div key={el}>
-                <Link to="/activitiesList">
+              <div key={el} className={style.divActivities}>
+                <Link className={style.Link} to="/activitiesList">
                   <h2>Activities</h2>
                 </Link>
-                <div>
+                <div className={style.divActivitiesInfo}>
                   <h3>{el.name}</h3>
                   <h3>Difficulty: {el.difficulty}</h3>
                   <h3>Duration: {el.duration}</h3>
