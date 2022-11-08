@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getActivities, postActivities } from "../../Redux/actions";
 import { SUMMER, FALL, WINTER, SPRING } from "../../Const/Const";
 import NavBar from "../Nav_bar/NavBar";
+import style from './ActivityCreate.module.css'
 
 function validate(input) {
   //function with verificated to errors in the form
@@ -91,17 +92,17 @@ const ActivityCreate = () => {
   }
 
   return (
-    <div>
+    <div >
       <div>
         <NavBar />
-        <div className="activityCardContainer">
-          <div className="activityCard">
-            <div className="activityTitle"></div>
+        <div className={style.container}>
+          <div className={style.container2}>
+            <div className={style.container3}></div>
 
-            <form className="formActivity" onSubmit={handleSubmit}>
-              <span className="titleCreateActivity"> Create an Activity </span>
-              <div className="inputActivities">
-                <label className="labelActivity"></label>
+            <form className={style.form} onSubmit={handleSubmit}>
+              <h2> Create an Activity </h2>
+              <div className={style.divInput}>
+                <label className="labelActivity">Name of the activities</label>
                 <input
                   className="i"
                   type="text"
@@ -114,7 +115,7 @@ const ActivityCreate = () => {
                 {errors.name && <p className="e">{errors.name}</p>}
               </div>
             
-              <div className="inputActivities">
+              <div  className={style.divInput}>
                 <label>Activity duration in minutes</label>
                 <select
                   nvalue={input.duration}
@@ -137,7 +138,7 @@ const ActivityCreate = () => {
                 {errors.duration && <p className="e">{errors.duration}</p>}
               </div>
 
-              <div className="inputActivities">
+              <div  className={style.divInput}>
                 <label> Difficulty </label>
                 <select
                   name="difficulty"
@@ -165,7 +166,8 @@ const ActivityCreate = () => {
               </div>
 
 
-              <div className="seasonInput">
+              <div  className={style.divInput}>
+                <label>Season</label>
                 <select
                   className="i"
                   name="season"
@@ -189,7 +191,8 @@ const ActivityCreate = () => {
               </div>
               {errors.countryId && <p className="e">{errors.countryId}</p>}
 
-              <div>
+              <div  className={style.divInput}>
+                <label>Enter country</label>
                 <select className="i" onChange={(e) => handleSelect(e)}>
                   <option className="op"> Countries </option>
                   {countries.map((e) => (
@@ -200,11 +203,11 @@ const ActivityCreate = () => {
                 </select>
               </div>
 
-              <div className="textArea">
+              <div className={style.divCountrie}>
                 {input.countryId.map((country) => (
-                  <div className="countrieAndButton">
+                  <div className={style.divcountryId}>
                     <input
-                      className="btnDelete"
+                      className={style.inputButton }
                       type="button"
                       value="X"
                       onClick={() => handleDelete(country)}
@@ -215,7 +218,7 @@ const ActivityCreate = () => {
               </div>
 
               <div>
-                <button className="btnActivity" type="submit">
+                <button className={style.inputButton } type="submit">
                   Create Activity
                 </button>
               </div>

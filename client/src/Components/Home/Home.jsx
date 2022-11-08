@@ -10,7 +10,6 @@ const Home = () => {
     <div className={style.container}>
       <div className={style.subContainer}>
         <NavBar />
-        
       </div>
       <Cards />
     </div>
