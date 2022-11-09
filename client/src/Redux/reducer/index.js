@@ -89,6 +89,7 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         countries: continentFilteredBC
       }
+      
     case FILTER_BY_ACTIVITIES:
       const filtredByActivities = state.allCountries
       const continentFilteredBA = filtredByActivities.filter((c) => { return c.activities.find((c) => { return c.name === action.payload; }); });

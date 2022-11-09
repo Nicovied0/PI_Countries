@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { getCountriesByName } from "../../Redux/actions/index";
 import style from "./SearchBar.module.css";
 
-const SearchBar = () => {
+function SearchBar({pages}) {
   const [search, setSearch] = useState("");
   const dispatch = useDispatch();
 
@@ -12,6 +12,7 @@ const SearchBar = () => {
     if (search.length === 0) return alert("Enter some country");
     dispatch(getCountriesByName(search));
     setSearch("");
+    pages(1)
   }
 
   function onChangeInput(e) {

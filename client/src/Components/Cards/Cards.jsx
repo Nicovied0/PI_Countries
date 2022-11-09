@@ -27,13 +27,14 @@ import {
   ALL_OF_EUROPE,
   ALL_OF_OCEANIA,
 } from "../../Const/Const";
+import SearchBar from "../SearchBar/SearchBar";
 
 export default function Cards() {
   const dispatch = useDispatch();
 
   const countries = useSelector((state) => state.countries); //mapStateToProps.
   const activities = useSelector((state) => state.activities);
-  console.log(countries.length);
+  // console.log(countries.length);
 
   //Paginate
   const [currentPage, setCurrentPage] = useState(1);
@@ -83,6 +84,7 @@ export default function Cards() {
 
   return (
     <div>
+      <SearchBar pages={setCurrentPage}/>
       <div className={style.selectdiv}>
         <select
           className={style.select}

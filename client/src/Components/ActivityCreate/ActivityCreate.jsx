@@ -38,6 +38,7 @@ const ActivityCreate = () => {
   });
 
   function handleChange(e) {
+    if(input.name)
     setInput({
       ...input,
       [e.target.name]: e.target.value,
@@ -58,9 +59,10 @@ const ActivityCreate = () => {
   }
 
   function handleSelect(e) {
+    if(!input.countryId.includes(e.target.value))
     setInput({
       ...input,
-      countryId: [...input.countryId, e.target.value],
+      countryId: [...input.countryId, e.target.value ],
     });
   }
 
@@ -111,7 +113,7 @@ const ActivityCreate = () => {
                   autoComplete="off"
                   onChange={handleChange}
                 />
-                {errors.name && <p>{errors.name}</p>}
+                {errors.name && <p className={style.error}>{errors.name}</p>}
               </div>
             
               <div  className={style.divInput}>
@@ -146,7 +148,7 @@ const ActivityCreate = () => {
                     240
                   </option>
                 </select>
-                {errors.duration && <p>{errors.duration}</p>}
+                {errors.duration && <p className={style.error}>{errors.duration}</p>}
               </div>
 
               <div  className={style.divInput}>
@@ -172,8 +174,7 @@ const ActivityCreate = () => {
                     5
                   </option>
                 </select>
-                
-                {errors.difficulty && <p> {errors.difficulty}</p>}
+                {errors.difficulty && <p className={style.error}> {errors.difficulty}</p>}
               </div>
 
 
@@ -197,9 +198,10 @@ const ActivityCreate = () => {
                     Spring
                   </option>
                 </select>
-                {errors.season && <p>{errors.season}</p>}
+                {errors.season && <p className={style.error}>{errors.season}</p>}
               </div>
-              {errors.countryId && <p>{errors.countryId}</p>}
+              {errors.countryId && <p className={style.error}>{errors.countryId}</p>}
+
 
               <div  className={style.divInput}>
                 <label>Enter country</label>
@@ -212,6 +214,8 @@ const ActivityCreate = () => {
                   ))}
                 </select>
               </div>
+
+
 
               <div className={style.divCountrie}>
                 {input.countryId.map((country) => (

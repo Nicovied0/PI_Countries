@@ -8,12 +8,12 @@ const getApiInfo = async () => {
       return {
         id: c.cca3,
         name: c.name.common,
-        flag: c.flags[0],
-        continent: c.continents[0],
-        capital: c.capital != null ? c.capital : 'No se encontro capital',
-        subregion: c.subregion,
-        area: c.area,
-        population: c.population
+        flag: c.flags[0] != null ? c.flags[0] : 'Flag not found',
+        continent: c.continents[0] != null ? c.continents[0] : 'Continents not found',
+        capital: c.capital != null ? c.capital : 'Capital not found',
+        subregion: c.subregion != null ? c.subregion : 'Subregion not found',
+        area: c.area != null ? c.area : 'Area not found',
+        population: c.population != null ? c.population : 'Population  not found'
       }
     })
     const saveInDbOrCreate = () => {
