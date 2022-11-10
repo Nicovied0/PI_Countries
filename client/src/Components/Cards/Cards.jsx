@@ -39,8 +39,8 @@ export default function Cards() {
   //Paginate
   const [currentPage, setCurrentPage] = useState(1);
   const [countriesPerPage] = useState(10);
-  const lastCountry = currentPage * countriesPerPage;
-  const firstCountry = lastCountry - countriesPerPage;
+  const lastCountry = currentPage === 1 ? 9 :  currentPage * countriesPerPage -1 ;
+  const firstCountry = currentPage === 1 ? 0 : lastCountry - countriesPerPage;
   const currentCountry = countries.slice(firstCountry, lastCountry);
   const [, setOrder] = useState(""); //state of ordenamient (name, population)
 
