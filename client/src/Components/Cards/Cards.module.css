@@ -40,3 +40,26 @@ select:hover{
   background-color:  #004ea2;
 
 }
+
+@media (max-width: 400px) {
+  .selectdiv{
+    align-items: center;
+  }
+  .select {
+    padding: 0;
+    max-width: 5.5rem;
+    margin: 0 0.1rem;
+  }
+  .containerCards{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    flex-direction: column;
+  }
+  
+}
+
+
