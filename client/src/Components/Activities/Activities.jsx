@@ -8,7 +8,7 @@ import { getActivities } from "../../Redux/actions/index";
 const Activities = () => {
   const dispatch = useDispatch();
   const activities = useSelector((state) => state.activities);
-  console.log(activities, "soy act de selector");
+  // console.log(activities, "soy act de selector");
 
   useEffect(() => {
     dispatch(getActivities());
