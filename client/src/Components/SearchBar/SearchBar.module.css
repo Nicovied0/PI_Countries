@@ -9,6 +9,7 @@
 .inputSearch {
   padding: 1rem;
   border-radius: 1rem;
+  width: 20rem;
 }
 
 .inputButton {
@@ -17,7 +18,7 @@
   border-radius: 0.51rem;
   background-color: white;
   color: black;
-  border: 2px solid #555555;
+  border: 3px solid #555555;
 }
 
 .inputButton:hover {

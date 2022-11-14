@@ -85,6 +85,7 @@ export default function Cards() {
   return (
     <div>
       <SearchBar pages={setCurrentPage}/>
+      
       <div className={style.selectdiv}>
         <select
           className={style.select}
