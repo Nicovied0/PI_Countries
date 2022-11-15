@@ -12,11 +12,9 @@
 .ul {
   display: flex;
 }
-.li{
-  
+.li {
   list-style: none;
-
-  margin: 0 0.3rem ;
+  margin: 0 0.3rem;
 }
 .button {
   padding: 0.7rem 1rem;
@@ -27,10 +25,31 @@
   cursor: pointer;
 }
 
-
-
 .button:hover {
   background-color: #555555;
   color: white;
   cursor: pointer;
+}
+
+@media (max-width: 400px) {
+  .container {
+    height: 3rem;
+    margin: 1rem 0 2rem 0;;
+    
+  }
+  .ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .li{
+
+    width: 1.9rem;
+  }
+  .button{
+    padding: 0 ;
+    width: 100%;
+  }
 }
