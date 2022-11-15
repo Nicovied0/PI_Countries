@@ -15,7 +15,7 @@ const Activities = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div> 
       <NavBar />
       <h2>Activities</h2>
 
