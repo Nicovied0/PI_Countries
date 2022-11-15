@@ -184,7 +184,7 @@ const ActivityCreate = () => {
 
               <div className={style.divInput}>
                 <label>Enter country</label>
-                <select onChange={(e) => handleSelect(e)}>
+                <select className={style.selectCountries} onChange={(e) => handleSelect(e)}>
                   <option> Countries </option>
                   {countries.map((e) => (
                     <option value={e.id}>{e.name}</option>
