@@ -21,8 +21,8 @@ const Activities = () => {
 
       <div className={style.container}>
         {activities?.map((act) => {
-          console.log(activities, "soy el de act");
-          console.log(act.id);
+          // console.log(activities, "soy el de act");
+          // console.log(act.id);
           return (
             <div key={act.id} className={style.containerActivities}>
               <Activity

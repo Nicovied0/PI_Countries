@@ -12,7 +12,7 @@ function SearchBar({pages}) {
     if (search.length === 0) return alert("Enter some country");
     dispatch(getCountriesByName(search));
     setSearch("");
-    pages(1)
+    pages(1) // setea la pag en 1
   }
 
   function onChangeInput(e) {

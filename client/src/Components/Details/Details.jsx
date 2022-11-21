@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { getDetails } from "../../Redux/actions";
+import { getDetails,clearDetails } from "../../Redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../Loader/Loader";
 import { Link } from "react-router-dom";
@@ -12,13 +12,17 @@ const Details = (props) => {
 
   useEffect(() => {
     dispatch(getDetails(props.match.params.id));
+    return function(){
+      dispatch(clearDetails() )
+    }
+    
   }, [dispatch, props.match.params.id]);
 
   if (!detailsCountry) {
     return <h2>Error</h2>;
   } else if (
-    detailsCountry.length === 0 ||
-    detailsCountry[0].id !== props.match.params.id
+    detailsCountry.length === 0 
+    // || detailsCountry[0].id !== props.match.params.id (agregando esta comprobacion no necesito limpiar el details state) 
   ) {
     return <Loader />;
   } else {

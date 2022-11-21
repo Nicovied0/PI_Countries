@@ -64,13 +64,15 @@ const ActivityCreate = () => {
   }
 
   function handleSelect(e) {
-    if (!input.countryId.includes(e.target.value))
-      //If input === a un input ya ingresado no se ingresa
-      setInput({
-        ...input,
-        countryId: [...input.countryId, e.target.value],
-      });
-    console.log(input);
+    // if(e.target.value !== "Countries")  
+    if (!input.countryId.includes(e.target.value) && e.target.value !== "Countries" )
+    //If input === a un input ya ingresado no se ingresa  y si el valor ingresado es distinto de Countries
+    setInput({
+      ...input,
+      countryId: [...input.countryId, e.target.value],
+    });
+    // console.log(input);
+    console.log(input.countryId,'soy country  ')
   }
 
   useEffect(() => {
@@ -187,15 +189,16 @@ const ActivityCreate = () => {
                 <select className={style.selectCountries} onChange={(e) => handleSelect(e)}>
                   <option> Countries </option>
                   {countries.map((e) => (
-                    <option value={e.id}>{e.name}</option>
+                    <option key={e.id}value={e.id}>{e.name}</option>
                   ))}
                 </select>
               </div>
 
               <div className={style.divCountrie}>
                 {input.countryId.map((country) => (
-                  <div className={style.divcountryId}>
+                  <div className={style.divcountryId} key={country.id}>
                     <input
+                    
                       className={style.inputButton}
                       type="button"
                       value="X"

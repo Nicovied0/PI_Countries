@@ -39,7 +39,8 @@ export default function Cards() {
   //Paginate
   const [currentPage, setCurrentPage] = useState(1);
   const [countriesPerPage] = useState(10);
-  const lastCountry = currentPage === 1 ? 9 :  currentPage * countriesPerPage -1 ;
+  const lastCountry =
+    currentPage === 1 ? 9 : currentPage * countriesPerPage - 1;
   const firstCountry = currentPage === 1 ? 0 : lastCountry - countriesPerPage;
   const currentCountry = countries.slice(firstCountry, lastCountry);
   const [, setOrder] = useState(""); //state of ordenamient (name, population)
@@ -84,8 +85,8 @@ export default function Cards() {
 
   return (
     <div>
-      <SearchBar pages={setCurrentPage}/>
-      
+      <SearchBar pages={setCurrentPage} />
+
       <div className={style.selectdiv}>
         <select
           className={style.select}
@@ -135,13 +136,16 @@ export default function Cards() {
       <div className={style.containerCards}>
         {currentCountry.length !== 0 ? (
           currentCountry?.map((country) => {
+            // console.log(country.id)
             return (
               <div className={style.containeCardsDiv} key={country.id}>
                 <Link
+                  key={country.id}
                   to={"/home/" + country.id}
                   className={style.Linkdecoration}
                 >
                   <Card
+                    key={country.id}
                     name={country.name}
                     flag={country.flag}
                     continent={country.continent}

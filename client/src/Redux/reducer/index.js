@@ -1,4 +1,4 @@
-import { GET_COUNTRIES, GET_DETAILS, GET_ACTIVITIES, POST_ACTIVITIES, SEARCH_COUNTRIES, ORDER_BY_NAME, UPWARD, MAX_POPULATION, ORDER_BY_POPULATION, FILTER_BY_CONTINENT, FILTER_BY_ACTIVITIES } from '../../Const/Const'
+import { GET_COUNTRIES, GET_DETAILS, CLEAR_DETAILS, GET_ACTIVITIES, POST_ACTIVITIES, SEARCH_COUNTRIES, ORDER_BY_NAME, UPWARD, MAX_POPULATION, ORDER_BY_POPULATION, FILTER_BY_CONTINENT, FILTER_BY_ACTIVITIES } from '../../Const/Const'
 
 
 const initialState = {
@@ -30,6 +30,12 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         details: action.payload
       }
+    case CLEAR_DETAILS:
+      return {
+        ...state,
+        details: []
+      }
+
 
     case ORDER_BY_NAME: {
       let orderByName = action.payload === UPWARD ? state.countries.sort((a, b) => {
@@ -89,7 +95,7 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         countries: continentFilteredBC
       }
-      
+
     case FILTER_BY_ACTIVITIES:
       const filtredByActivities = state.allCountries
       const continentFilteredBA = filtredByActivities.filter((c) => { return c.activities.find((c) => { return c.name === action.payload; }); });
