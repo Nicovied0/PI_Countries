@@ -44,3 +44,10 @@ export const RESET = 'RESET'
 //ADICIONAL FILTERS AND ORDERS
 export const MIN_TO = 'MIN_TO'
 export const MAX_TO = 'MAX_TO'
+//
+export const ORDER_BY_AREA = 'ORDER_BY_AREA'
+export const MAX_AREA = 'MAX_AREA'
+export const MIN_AREA = 'MIN_AREA'
+
+
+

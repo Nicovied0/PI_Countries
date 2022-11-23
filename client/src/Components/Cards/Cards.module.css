@@ -18,7 +18,8 @@
 }
 .containeCardsDiv {
   display: flex;
-  background: rgb(78, 78, 78);
+  background: #7171713b;
+    box-shadow: 1px 1px 11px #191919, 1px 3px 16px #292929;
   margin: 2rem;
   border-radius: 3rem;
   flex-direction: column;
@@ -28,6 +29,10 @@
   align-items: center;
   align-content: center;
   justify-content: space-evenly;
+}
+.containeCardsDiv:hover{
+  transform:scale(1.10);
+
 }
 select{
   padding: 0.2rem;

@@ -50,10 +50,14 @@ const Details = (props) => {
               <h3>Subregion: {detailsCountry[0].subregion}</h3>
               <h3>Area: {detailsCountry[0].area} km2</h3>
               <h3>Population: {detailsCountry[0].population}</h3>
-              <h3>{!detailsCountry[0].activities?.length ? <h3>No activity</h3> : null}</h3>
+
+              {detailsCountry[0].activities?.length === 0 ? (
+                <h3>No activities</h3>
+              ) : null}
             </div>
           </div>
         </div>
+
         {detailsCountry[0].activities.length !== 0 ? (
           <div className={style.containerdiv2}>
             {detailsCountry[0].activities?.map((el) => {

@@ -1,4 +1,4 @@
-import { GET_COUNTRIES, GET_DETAILS, CLEAR_DETAILS, GET_ACTIVITIES, POST_ACTIVITIES, SEARCH_COUNTRIES, ORDER_BY_NAME, UPWARD, MAX_POPULATION, ORDER_BY_POPULATION, FILTER_BY_CONTINENT, FILTER_BY_ACTIVITIES, MAX_TO } from '../../Const/Const'
+import { GET_COUNTRIES, ORDER_BY_AREA, GET_DETAILS, CLEAR_DETAILS, GET_ACTIVITIES, POST_ACTIVITIES, SEARCH_COUNTRIES, ORDER_BY_NAME, UPWARD, MAX_POPULATION, ORDER_BY_POPULATION, FILTER_BY_CONTINENT, FILTER_BY_ACTIVITIES, MAX_TO,MAX_AREA } from '../../Const/Const'
 
 
 const initialState = {
@@ -88,6 +88,33 @@ export default function rootReducer(state = initialState, action) {
         countries: orderCountriesByPopulation
       }
 
+
+      case ORDER_BY_AREA:
+      let orderCountriesByArea = action.payload === MAX_AREA ? state.countries.sort((a, b) => {
+        if (a.area < b.area) {
+          return 1;
+        }
+        if (a.area > b.area) {
+          return -1;
+        }
+        return 0;
+      }) :
+        state.countries.sort((a, b) => {
+
+          if (a.area < b.area) {
+            return -1;
+          }
+          if (a.area > b.area) {
+            return 1;
+          }
+          return 0;
+        })
+
+      return {
+        ...state,
+        countries: orderCountriesByArea
+      }
+
     case FILTER_BY_CONTINENT:
       const filtredByContinent = state.allCountries
       const continentFilteredBC = action.payload === 'All' ? filtredByContinent : filtredByContinent.filter(el => el.continent === action.payload)
@@ -111,7 +138,7 @@ export default function rootReducer(state = initialState, action) {
           countries: continentFilteredBA
         }
       }
-      
+
     // 
     case MAX_TO:
       const filterMaxToM = state.allCountries

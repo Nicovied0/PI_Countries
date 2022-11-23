@@ -8,6 +8,7 @@ import {
   filterByContinent,
   filterByActivity,
   filterMaxTo,
+  orderByArea
 } from "../../Redux/actions/index";
 import { Link } from "react-router-dom";
 import style from "./Cards.module.css";
@@ -72,6 +73,13 @@ export default function Cards() {
     setCurrentPage(1);
   }
 
+  function areaSort(e){
+    e.preventDefault()
+    dispatch(orderByArea(e.target.value));
+    setCurrentPage(1);
+    setOrder(`Ordering ${e.target.value}`);
+
+  }
   ///////////////////////
 
   //useEffect to dispatch actions
@@ -92,6 +100,7 @@ export default function Cards() {
         handleFilterContinent={handleFilterContinent}
         handleFilterActivity={handleFilterActivity}
         handleFilterMaxTo={handleFilterMaxTo}
+        areaSort={areaSort}
         />
       </div>
 
