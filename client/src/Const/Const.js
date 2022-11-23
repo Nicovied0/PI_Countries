@@ -39,3 +39,8 @@ export const SPRING = 'SPRING'
 
 //Reset state
 export const RESET = 'RESET'
+
+
+//ADICIONAL FILTERS AND ORDERS
+export const MIN_TO = 'MIN_TO'
+export const MAX_TO = 'MAX_TO'

@@ -16,6 +16,7 @@ const getApiInfo = async () => {
         population: c.population != null ? c.population : 'Population  not found'
       }
     })
+    
     const saveInDbOrCreate = () => {
       countriesInfo.map(i => {
         Country.findOrCreate({
@@ -58,7 +59,7 @@ const getDbInfo = async () => {
 
 const getActivities = async () => {
   const getAct = await Activity.findAll()
-  console.log(getAct)
+  // console.log(getAct)
   return getAct;
 }
 

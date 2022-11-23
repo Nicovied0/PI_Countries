@@ -7,6 +7,7 @@ import {
   orderByPopulation,
   filterByContinent,
   filterByActivity,
+  filterMaxTo,
 } from "../../Redux/actions/index";
 import { Link } from "react-router-dom";
 import style from "./Cards.module.css";
@@ -26,6 +27,8 @@ import {
   ALL_OF_ASIA,
   ALL_OF_EUROPE,
   ALL_OF_OCEANIA,
+  MAX_TO,
+  MIN_TO,
 } from "../../Const/Const";
 import SearchBar from "../SearchBar/SearchBar";
 
@@ -76,6 +79,15 @@ export default function Cards() {
     dispatch(filterByActivity(e.target.value));
     setCurrentPage(1);
   }
+
+  ////
+  //Filter by Population max to
+  function handleFilterMaxTo(e) {
+    dispatch(filterMaxTo(e.target.value));
+    setCurrentPage(1);
+  }
+
+  ////
 
   //useEffect to dispatch actions
   useEffect(() => {
@@ -131,16 +143,22 @@ export default function Cards() {
             <option value={v.name}>{v.name}</option>
           ))}
         </select>
+
+        {/* filters news */}
+
+        <select onChange={(e) => handleFilterMaxTo(e)}>
+          <option value={MAX_TO}>More than 100000</option>
+          <option value={MIN_TO}>Less than 100000</option>
+        </select>
       </div>
 
       <div className={style.containerCards}>
         {currentCountry.length !== 0 ? (
           currentCountry?.map((country) => {
-            // console.log(country.id)
+            // console.log(index);
             return (
-              <div className={style.containeCardsDiv} key={country.id}>
+              <div className={style.containeCardsDiv}>
                 <Link
-                  key={country.id}
                   to={"/home/" + country.id}
                   className={style.Linkdecoration}
                 >

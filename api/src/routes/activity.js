@@ -9,6 +9,10 @@ router.get('/', async (req, res) => {
   try {
     const getActivity = await getActivities()
     res.status(200).send(getActivity)
+    // console.log(req.params)
+    // const id = 2
+    // console.log(getActivity.find(e => e.dataValues.id === id), "soy yo")
+
   } catch {
     res.status(404).send('Error in get activities')
   }
@@ -24,10 +28,10 @@ router.post('/', async (req, res) => {
     season,
     countryId
   })
-  
+
   const countries = await Country.findAll({
     where: {
-      id: countryId
+      name: countryId
     }
   })
   createActivity.addCountries(countries)
@@ -35,6 +39,18 @@ router.post('/', async (req, res) => {
 
 })
 
+//////////////
+// router.delete('/delete/:id', async (req, res) => {
+//   const { id } = req.body
+//   const activities = await Activity.destroy({
+//     where:{
+//       id:id
+//     }
+//   })
+//   console.log(activities)
+//   res.send('actividad borrada')
+// })
+///////////////
 
 
 module.exports = router;

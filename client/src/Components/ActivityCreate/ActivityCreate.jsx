@@ -121,6 +121,7 @@ const ActivityCreate = () => {
                   name="name"
                   autoComplete="off"
                   onChange={handleChange}
+                  className={errors.name && style.danger}
                 />
                 {errors.name && <p className={style.error}>{errors.name}</p>}
               </div>
@@ -189,7 +190,7 @@ const ActivityCreate = () => {
                 <select className={style.selectCountries} onChange={(e) => handleSelect(e)}>
                   <option> Countries </option>
                   {countries.map((e) => (
-                    <option key={e.id}value={e.id}>{e.name}</option>
+                    <option key={e.id} value={e.name}>{e.name}</option>
                   ))}
                 </select>
               </div>
@@ -210,7 +211,7 @@ const ActivityCreate = () => {
               </div>
 
               <div>
-                <button className={style.inputButton} type="submit">
+                <button  className={style.inputButton} >
                   Create Activity
                 </button>
               </div>

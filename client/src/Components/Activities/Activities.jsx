@@ -22,9 +22,9 @@ const Activities = () => {
       <div className={style.container}>
         {activities?.map((act) => {
           // console.log(activities, "soy el de act");
-          // console.log(act.id);
+          console.log(act);
           return (
-            <div key={act.id} className={style.containerActivities}>
+            <div  className={style.containerActivities}>
               <Activity
                 key={act.id}
                 name={act.name}
@@ -32,6 +32,7 @@ const Activities = () => {
                 season={act.season}
                 difficulty={act.difficulty}
                 countryId={act.countryId}
+                close={act.id}
               />
             </div>
           );

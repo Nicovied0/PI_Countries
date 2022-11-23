@@ -1,4 +1,4 @@
-import { GET_COUNTRIES, GET_DETAILS, CLEAR_DETAILS, GET_ACTIVITIES, POST_ACTIVITIES, SEARCH_COUNTRIES, ORDER_BY_NAME, UPWARD, MAX_POPULATION, ORDER_BY_POPULATION, FILTER_BY_CONTINENT, FILTER_BY_ACTIVITIES } from '../../Const/Const'
+import { GET_COUNTRIES, GET_DETAILS, CLEAR_DETAILS, GET_ACTIVITIES, POST_ACTIVITIES, SEARCH_COUNTRIES, ORDER_BY_NAME, UPWARD, MAX_POPULATION, ORDER_BY_POPULATION, FILTER_BY_CONTINENT, FILTER_BY_ACTIVITIES, MAX_TO } from '../../Const/Const'
 
 
 const initialState = {
@@ -111,6 +111,19 @@ export default function rootReducer(state = initialState, action) {
           countries: continentFilteredBA
         }
       }
+      
+    // 
+    case MAX_TO:
+      const filterMaxToM = state.allCountries
+      const countriesFilterBTM = action.payload === MAX_TO ? filterMaxToM.filter((c) => { return c.population >= 1000 }) :
+        filterMaxToM.filter((c) => { return c.population <= 1000 })
+      return {
+        ...state,
+        countries: countriesFilterBTM
+      }
+
+
+    ////
 
     case GET_ACTIVITIES:
       return {

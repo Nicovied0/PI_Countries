@@ -3,7 +3,7 @@ import "../Activities/Activities";
 import style from './Activity.module.css'
 
 const Activity = ({ name, duration, season, difficulty, countryId }) => {
-  console.log(countryId)
+  // console.log(countryId)
   return (
     <div className={style.container}>
       <h2>{name}</h2>

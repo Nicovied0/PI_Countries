@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { getDetails,clearDetails } from "../../Redux/actions";
+import { getDetails, clearDetails } from "../../Redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../Loader/Loader";
 import { Link } from "react-router-dom";
@@ -12,21 +12,22 @@ const Details = (props) => {
 
   useEffect(() => {
     dispatch(getDetails(props.match.params.id));
-    return function(){
-      dispatch(clearDetails() )
-    }
-    
+    return function () {
+      dispatch(clearDetails());
+    };
   }, [dispatch, props.match.params.id]);
 
   if (!detailsCountry) {
     return <h2>Error</h2>;
   } else if (
-    detailsCountry.length === 0 
-    // || detailsCountry[0].id !== props.match.params.id (agregando esta comprobacion no necesito limpiar el details state) 
+    detailsCountry.length === 0
+    // || detailsCountry[0].id !== props.match.params.id
+    // (agregando esta comprobacion no necesito limpiar el details state)
   ) {
     return <Loader />;
   } else {
     console.log(detailsCountry[0].name);
+    // detailsCountry[0].activities.length !== 0
     return (
       <div className={style.containerdetailsdiv}>
         <div className={style.containerdiv}>
@@ -49,31 +50,32 @@ const Details = (props) => {
               <h3>Subregion: {detailsCountry[0].subregion}</h3>
               <h3>Area: {detailsCountry[0].area} km2</h3>
               <h3>Population: {detailsCountry[0].population}</h3>
+              <h3>{!detailsCountry[0].activities?.length ? <h3>No activity</h3> : null}</h3>
             </div>
           </div>
         </div>
-        {
-          detailsCountry[0].activities.length !== 0 ?
+        {detailsCountry[0].activities.length !== 0 ? (
           <div className={style.containerdiv2}>
-          {detailsCountry[0].activities?.map((el) => {
-            console.log(detailsCountry[0].activities.length, 'soy console')
-            return (
-              <div key={el} className={style.divActivities}>
-                <Link className={style.Link} to="/activitiesList">
-                  <h2>Activities</h2>
-                </Link>
-                <div className={style.divActivitiesInfo}>
-                  <h3>{el.name}</h3>
-                  <h3>Difficulty: {el.difficulty}</h3>
-                  <h3>Duration: {el.duration}</h3>
-                  <h3>Season: {el.season}</h3>
+            {detailsCountry[0].activities?.map((el) => {
+              console.log(detailsCountry[0].activities.length, "soy console");
+              return (
+                <div key={el} className={style.divActivities}>
+                  <Link className={style.Link} to="/activitiesList">
+                    <h2>Activities</h2>
+                  </Link>
+                  <div className={style.divActivitiesInfo}>
+                    <h3>{el.name}</h3>
+                    <h3>Difficulty: {el.difficulty}</h3>
+                    <h3>Duration: {el.duration}</h3>
+                    <h3>Season: {el.season}</h3>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
-        </div> : <></>
-        }
-        
+              );
+            })}
+          </div>
+        ) : (
+          <></>
+        )}
       </div>
     );
   }

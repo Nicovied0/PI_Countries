@@ -3,7 +3,7 @@ import style from "./Card.module.css";
 
 const Card = ({ name, flag, capital, continent }) => {
   return (
-    <div className={style.cardContainer}>
+    <div className={style.cardContainer} >
       <h3>{name}</h3>
       <img className={style.cardImg} src={flag} alt="Imagen no encontrada" />
       <div className={style.cardDiv}>
