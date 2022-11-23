@@ -14,23 +14,8 @@ import style from "./Cards.module.css";
 import Card from "../Card/Card";
 import Loader from "../Loader/Loader";
 import Paginate from "../Paginate/Paginate";
-import {
-  UPWARD,
-  FALLING,
-  MAX_POPULATION,
-  MIN_POPULATION,
-  ALL,
-  ALL_OF_AFRICA,
-  ALL_OF_N_AMERICA,
-  ALL_OF_S_AMERICA,
-  ALL_OF_ANTARCTICA,
-  ALL_OF_ASIA,
-  ALL_OF_EUROPE,
-  ALL_OF_OCEANIA,
-  MAX_TO,
-  MIN_TO,
-} from "../../Const/Const";
 import SearchBar from "../SearchBar/SearchBar";
+import Filters from "../Filers/Filters";
 
 export default function Cards() {
   const dispatch = useDispatch();
@@ -80,14 +65,14 @@ export default function Cards() {
     setCurrentPage(1);
   }
 
-  ////
+  ////////////////////////
   //Filter by Population max to
   function handleFilterMaxTo(e) {
     dispatch(filterMaxTo(e.target.value));
     setCurrentPage(1);
   }
 
-  ////
+  ///////////////////////
 
   //useEffect to dispatch actions
   useEffect(() => {
@@ -100,56 +85,14 @@ export default function Cards() {
       <SearchBar pages={setCurrentPage} />
 
       <div className={style.selectdiv}>
-        <select
-          className={style.select}
-          onChange={(e) => {
-            nameSort(e);
-          }}
-        >
-          <option value={UPWARD}> A-Z </option>
-          <option value={FALLING}> Z-A </option>
-        </select>
-
-        <select
-          className={style.select}
-          onChange={(e) => {
-            populationSort(e);
-          }}
-        >
-          <option value={MAX_POPULATION}>Max population</option>
-          <option value={MIN_POPULATION}>Min population</option>
-        </select>
-
-        <select
-          className={style.select}
-          onChange={(e) => handleFilterContinent(e)}
-        >
-          <option value={ALL}>All</option>
-          <option value={ALL_OF_AFRICA}>Africa</option>
-          <option value={ALL_OF_ANTARCTICA}>Antarctica</option>
-          <option value={ALL_OF_N_AMERICA}>Nort America</option>
-          <option value={ALL_OF_S_AMERICA}>South America</option>
-          <option value={ALL_OF_ASIA}>Asia</option>
-          <option value={ALL_OF_EUROPE}>Europe</option>
-          <option value={ALL_OF_OCEANIA}>Oceania</option>
-        </select>
-
-        <select
-          className={style.select}
-          onChange={(e) => handleFilterActivity(e)}
-        >
-          <option value="All">Activities</option>
-          {activities.map((v) => (
-            <option value={v.name}>{v.name}</option>
-          ))}
-        </select>
-
-        {/* filters news */}
-
-        <select onChange={(e) => handleFilterMaxTo(e)}>
-          <option value={MAX_TO}>More than 100000</option>
-          <option value={MIN_TO}>Less than 100000</option>
-        </select>
+        <Filters 
+        activities={activities}
+        nameSort={nameSort} 
+        populationSort={populationSort}
+        handleFilterContinent={handleFilterContinent}
+        handleFilterActivity={handleFilterActivity}
+        handleFilterMaxTo={handleFilterMaxTo}
+        />
       </div>
 
       <div className={style.containerCards}>
