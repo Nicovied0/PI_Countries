@@ -6,7 +6,7 @@ const Paginate = ({ countriesPerPage, countries, paginated }) => {
   for (let i = 1; i < Math.ceil(countries / countriesPerPage); i++) {
     pageNumber.push(i);
   }
-
+///
   return (
     <div className={styles.container}>
       <ul className={styles.ul}>

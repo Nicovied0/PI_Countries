@@ -1,0 +1,13 @@
+.btn{
+  width: 2.5rem;
+  border-radius: 0.51rem;
+  border: 3px solid #555555;
+  cursor: pointer;
+}
+.btn:hover{
+  background-color: #555555;
+  
+}
+.img{
+  max-width: 100%;
+}

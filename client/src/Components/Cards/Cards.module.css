@@ -12,9 +12,16 @@
   max-width: 100%;
   margin: 1rem;
   justify-content: space-evenly;
+  user-select:none
 }
 .Linkdecoration{
   text-decoration: none;
+}
+.divSeRe{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+    justify-content: center;
 }
 .containeCardsDiv {
   display: flex;

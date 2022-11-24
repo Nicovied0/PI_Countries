@@ -7,11 +7,16 @@ import NavBar from "../Nav_bar/NavBar";
 import style from "./ActivityCreate.module.css";
 
 function validate(input) {
-  console.log(input.name.trim())
+  console.log(input.name.trim());
   //function with verificated to errors in the form
   let errors = {};
-  if (!input.name || !input.name.trim().replace(/\s+/g, ' ') || !/^[a-zA-Z áéíóúÁÉÍÓÚñÑ\s]*$/.test(input.name) || input.name.length < 3) {
-    errors.name = "Name of activity must contain only letters"; //.trim para quitar espacios vacios al principio y al final, .remplace para quitar espacios en blanco y expresion regular testeada con el .test para verificar que sea alfanumerico y 
+  if (
+    !input.name ||
+    !input.name.trim().replace(/\s+/g, " ") ||
+    !/^[a-zA-Z áéíóúÁÉÍÓÚñÑ\s]*$/.test(input.name) ||
+    input.name.length < 3
+  ) {
+    errors.name = "Name of activity must contain only letters"; //.trim para quitar espacios vacios al principio y al final, .remplace para quitar espacios en blanco y expresion regular testeada con el .test para verificar que sea alfanumerico y
   } else if (!input.duration) {
     errors.duration = "You must complete this field";
   } else if (!input.difficulty) {
@@ -64,15 +69,18 @@ const ActivityCreate = () => {
   }
 
   function handleSelect(e) {
-    // if(e.target.value !== "Countries")  
-    if (!input.countryId.includes(e.target.value) && e.target.value !== "Countries" )
-    //If input === a un input ya ingresado no se ingresa  y si el valor ingresado es distinto de Countries
-    setInput({
-      ...input,
-      countryId: [...input.countryId, e.target.value],
-    });
+    // if(e.target.value !== "Countries")
+    if (
+      !input.countryId.includes(e.target.value) &&
+      e.target.value !== "Countries"
+    )
+      //If input === a un input ya ingresado no se ingresa  y si el valor ingresado es distinto de Countries
+      setInput({
+        ...input,
+        countryId: [...input.countryId, e.target.value],
+      });
     // console.log(input);
-    console.log(input.countryId,'soy country  ')
+    console.log(input.countryId, "soy country  ");
   }
 
   useEffect(() => {
@@ -171,6 +179,7 @@ const ActivityCreate = () => {
                   name="season"
                   value={input.season}
                   onChange={(e) => handleChange(e)}
+                  defaultValue="order"
                 >
                   <option value={WINTER}>Winter</option>
                   <option value={SUMMER}>Summer</option>
@@ -187,10 +196,15 @@ const ActivityCreate = () => {
 
               <div className={style.divInput}>
                 <label>Enter country</label>
-                <select className={style.selectCountries} onChange={(e) => handleSelect(e)}>
+                <select
+                  className={style.selectCountries}
+                  onChange={(e) => handleSelect(e)}
+                >
                   <option> Countries </option>
                   {countries.map((e) => (
-                    <option key={e.id} value={e.name}>{e.name}</option>
+                    <option key={e.id} value={e.name}>
+                      {e.name}
+                    </option>
                   ))}
                 </select>
               </div>
@@ -199,7 +213,6 @@ const ActivityCreate = () => {
                 {input.countryId.map((country) => (
                   <div className={style.divcountryId} key={country.id}>
                     <input
-                    
                       className={style.inputButton}
                       type="button"
                       value="X"
@@ -211,9 +224,7 @@ const ActivityCreate = () => {
               </div>
 
               <div>
-                <button  className={style.inputButton} >
-                  Create Activity
-                </button>
+                <button className={style.inputButton}>Create Activity</button>
               </div>
             </form>
           </div>

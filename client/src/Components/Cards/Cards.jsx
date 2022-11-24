@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getCountries,
@@ -8,15 +9,15 @@ import {
   filterByContinent,
   filterByActivity,
   filterMaxTo,
-  orderByArea
+  orderByArea,
 } from "../../Redux/actions/index";
-import { Link } from "react-router-dom";
 import style from "./Cards.module.css";
 import Card from "../Card/Card";
 import Loader from "../Loader/Loader";
 import Paginate from "../Paginate/Paginate";
 import SearchBar from "../SearchBar/SearchBar";
 import Filters from "../Filers/Filters";
+import Reload from "../Reload/Reload";
 
 export default function Cards() {
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ export default function Cards() {
   const currentCountry = countries.slice(firstCountry, lastCountry);
   const [, setOrder] = useState(""); //state of ordenamient (name, population)
 
+  
   const paginated = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
@@ -44,6 +46,7 @@ export default function Cards() {
     dispatch(orderByName(e.target.value));
     setCurrentPage(1);
     setOrder(`Ordering ${e.target.value}`);
+    // console.log(setOrder,'soy order')
   }
 
   //Order by population
@@ -73,34 +76,40 @@ export default function Cards() {
     setCurrentPage(1);
   }
 
-  function areaSort(e){
-    e.preventDefault()
+  function areaSort(e) {
+    e.preventDefault();
     dispatch(orderByArea(e.target.value));
     setCurrentPage(1);
     setOrder(`Ordering ${e.target.value}`);
-
   }
   ///////////////////////
-
+  const handleOnClick = () => {
+    window.location.reload()
+}
   //useEffect to dispatch actions
   useEffect(() => {
     dispatch(getCountries());
     dispatch(getActivities());
+   
   }, [dispatch]);
 
   return (
     <div>
+      <div className={style.divSeRe} >
+
       <SearchBar pages={setCurrentPage} />
+      <Reload handleOnClick={handleOnClick}/>
+      </div>
 
       <div className={style.selectdiv}>
-        <Filters 
-        activities={activities}
-        nameSort={nameSort} 
-        populationSort={populationSort}
-        handleFilterContinent={handleFilterContinent}
-        handleFilterActivity={handleFilterActivity}
-        handleFilterMaxTo={handleFilterMaxTo}
-        areaSort={areaSort}
+        <Filters
+          activities={activities}
+          nameSort={nameSort}
+          populationSort={populationSort}
+          handleFilterContinent={handleFilterContinent}
+          handleFilterActivity={handleFilterActivity}
+          handleFilterMaxTo={handleFilterMaxTo}
+          areaSort={areaSort}
         />
       </div>
 
