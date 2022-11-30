@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { getDetails, clearDetails } from "../../Redux/actions";
+import { getDetails, clearDetails,resetCountries } from "../../Redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../Loader/Loader";
 import { Link } from "react-router-dom";
@@ -14,6 +14,7 @@ const Details = (props) => {
     dispatch(getDetails(props.match.params.id));
     return function () {
       dispatch(clearDetails());
+      dispatch(resetCountries())
     };
   }, [dispatch, props.match.params.id]);
 

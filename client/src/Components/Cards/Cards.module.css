@@ -1,4 +1,4 @@
-.container{
+.container {
   display: flex;
   flex-direction: column;
   margin-bottom: 5rem;
@@ -13,21 +13,21 @@
   max-width: 100%;
   margin: 1rem;
   justify-content: space-evenly;
-  user-select:none
+  user-select: none;
 }
-.Linkdecoration{
+.Linkdecoration {
   text-decoration: none;
 }
-.divSeRe{
+.divSeRe {
   display: flex;
   flex-direction: row;
   align-items: center;
-    justify-content: center;
+  justify-content: center;
 }
 .containeCardsDiv {
   display: flex;
   background: #145369;
-    box-shadow: 1px 1px 11px #191919, 1px 3px 16px #292929;
+  box-shadow: 1px 1px 11px #191919, 1px 3px 16px #292929;
   margin: 2rem;
   border-radius: 3rem;
   flex-direction: column;
@@ -38,24 +38,22 @@
   align-content: center;
   justify-content: space-evenly;
 }
-.containeCardsDiv:hover{
-  transform:scale(1.10);
-
+.containeCardsDiv:hover {
+  transform: scale(1.1);
 }
-select{
+select {
   padding: 0.2rem;
-  margin:  0.5rem; background-color: #1e90ff;
-  color: #ffffff; 
-
+  margin: 0.5rem;
+  background-color: #1e90ff;
+  color: #ffffff;
 }
 
-select:hover{
-  background-color:  #004ea2;
-
+select:hover {
+  background-color: #004ea2;
 }
 
 @media (max-width: 400px) {
-  .selectdiv{
+  .selectdiv {
     align-items: center;
   }
   .select {
@@ -63,7 +61,7 @@ select:hover{
     max-width: 5.5rem;
     margin: 0 0.1rem;
   }
-  .containerCards{
+  .containerCards {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -72,7 +70,4 @@ select:hover{
     max-width: 100%;
     flex-direction: column;
   }
-  
 }
-
-

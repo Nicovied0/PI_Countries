@@ -37,7 +37,6 @@ export default function Cards() {
   const currentCountry = countries.slice(firstCountry, lastCountry);
   const [, setOrder] = useState(""); //state of ordenamient (name, population)
 
-  
   const paginated = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
@@ -86,23 +85,21 @@ export default function Cards() {
   }
   ///////////////////////
   const handleOnClick = () => {
-    window.location.reload()
-}
+    window.location.reload();
+  };
   //useEffect to dispatch actions
   useEffect(() => {
     dispatch(getCountries());
     dispatch(getActivities());
     AOS.init();
     AOS.refresh();
-   
   }, [dispatch]);
 
   return (
     <div>
       <div className={style.divSeRe} data-aos="fade-right">
-
-      <SearchBar pages={setCurrentPage} />
-      <Reload handleOnClick={handleOnClick} />
+        <SearchBar pages={setCurrentPage} />
+        <Reload handleOnClick={handleOnClick} />
       </div>
 
       <div className={style.selectdiv} data-aos="fade-up">
@@ -117,7 +114,7 @@ export default function Cards() {
         />
       </div>
 
-      <div className={style.containerCards} >
+      <div className={style.containerCards}>
         {currentCountry.length !== 0 ? (
           currentCountry?.map((country) => {
             // console.log(index);
