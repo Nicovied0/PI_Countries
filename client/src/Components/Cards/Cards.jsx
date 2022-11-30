@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getCountries,
@@ -90,18 +92,20 @@ export default function Cards() {
   useEffect(() => {
     dispatch(getCountries());
     dispatch(getActivities());
+    AOS.init();
+    AOS.refresh();
    
   }, [dispatch]);
 
   return (
     <div>
-      <div className={style.divSeRe} >
+      <div className={style.divSeRe} data-aos="fade-right">
 
       <SearchBar pages={setCurrentPage} />
-      <Reload handleOnClick={handleOnClick}/>
+      <Reload handleOnClick={handleOnClick} />
       </div>
 
-      <div className={style.selectdiv}>
+      <div className={style.selectdiv} data-aos="fade-up">
         <Filters
           activities={activities}
           nameSort={nameSort}
@@ -118,7 +122,7 @@ export default function Cards() {
           currentCountry?.map((country) => {
             // console.log(index);
             return (
-              <div className={style.containeCardsDiv} >
+              <div className={style.containeCardsDiv} data-aos="zoom-in">
                 <Link
                   to={"/home/" + country.id}
                   className={style.Linkdecoration}
@@ -139,7 +143,7 @@ export default function Cards() {
           <Loader />
         )}
       </div>
-      <div className={style.container}>
+      <div className={style.container} data-aos="fade-right">
         <Paginate
           countriesPerPage={countriesPerPage}
           countries={countries.length}
