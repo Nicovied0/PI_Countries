@@ -47,6 +47,7 @@ export const ORDER_BY_AREA = 'ORDER_BY_AREA'
 export const MAX_AREA = 'MAX_AREA'
 export const MIN_AREA = 'MIN_AREA'
 
+export const RESET_COUNTRIES = "RESET_COUNTRIES"
 
 
 
