@@ -39,6 +39,7 @@ export default function Cards() {
 
   const paginated = (pageNumber) => {
     setCurrentPage(pageNumber);
+    window.scrollTo({ top: 0, behavior: "smooth" }); //SCROLL TO TOP, 
   };
 
   //Order by Name
