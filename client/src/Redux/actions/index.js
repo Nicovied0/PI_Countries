@@ -95,6 +95,12 @@ export function filterMaxTo(payload){
         payload
     }
 }
+export function resetCountries(){
+    return{
+        type:RESET_COUNTRIES
+
+    }
+}
 
 
 export function getActivities() {
