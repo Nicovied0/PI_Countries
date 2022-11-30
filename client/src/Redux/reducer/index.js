@@ -1,4 +1,4 @@
-import { GET_COUNTRIES, ORDER_BY_AREA, GET_DETAILS, CLEAR_DETAILS, GET_ACTIVITIES, POST_ACTIVITIES, SEARCH_COUNTRIES, ORDER_BY_NAME, UPWARD, MAX_POPULATION, ORDER_BY_POPULATION, FILTER_BY_CONTINENT, FILTER_BY_ACTIVITIES, MAX_TO, MAX_AREA } from '../../Const/Const'
+import { RESET_COUNTRIES,GET_COUNTRIES, ORDER_BY_AREA, GET_DETAILS, CLEAR_DETAILS, GET_ACTIVITIES, POST_ACTIVITIES, SEARCH_COUNTRIES, ORDER_BY_NAME, UPWARD, MAX_POPULATION, ORDER_BY_POPULATION, FILTER_BY_CONTINENT, FILTER_BY_ACTIVITIES, MAX_TO, MAX_AREA } from '../../Const/Const'
 
 
 const initialState = {
@@ -149,6 +149,12 @@ export default function rootReducer(state = initialState, action) {
         countries: countriesFilterBTM
       }
 
+      case RESET_COUNTRIES:{
+        return {
+          ...state,
+          countries:[]
+        } 
+      }
 
     ////
 
