@@ -1,9 +1,10 @@
 .container {
-  background-color: grey;
+  background-color: #145369;
   width: 15rem;
   height: 15rem;
   margin: 1rem 2rem;
-  border-radius: 1rem;
+  border: 3px #041014 solid;
+  border-radius: 2rem;
 }
 
 @media (max-width: 400px) {

@@ -113,12 +113,12 @@ export default function Cards() {
         />
       </div>
 
-      <div className={style.containerCards}>
+      <div className={style.containerCards} >
         {currentCountry.length !== 0 ? (
           currentCountry?.map((country) => {
             // console.log(index);
             return (
-              <div className={style.containeCardsDiv}>
+              <div className={style.containeCardsDiv} >
                 <Link
                   to={"/home/" + country.id}
                   className={style.Linkdecoration}

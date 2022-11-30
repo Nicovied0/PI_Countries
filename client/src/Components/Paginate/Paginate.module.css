@@ -21,12 +21,12 @@
   border-radius: 0.51rem;
   background-color: white;
   color: black;
-  border: 2px solid #555555;
+  border: 2px solid #041014;
   cursor: pointer;
 }
 
 .button:hover {
-  background-color: #555555;
+  background-color: #041014;
   color: white;
   cursor: pointer;
 }

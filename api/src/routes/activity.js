@@ -39,18 +39,37 @@ router.post('/', async (req, res) => {
 
 })
 
-//////////////
-// router.delete('/delete/:id', async (req, res) => {
-//   const { id } = req.body
-//   const activities = await Activity.destroy({
-//     where:{
-//       id:id
-//     }
-//   })
-//   console.log(activities)
-//   res.send('actividad borrada')
-// })
-///////////////
+router.delete('/delete/:id', async (req, res) => {
+  try {
+    const { id } = req.params
+    const activities = await Activity.destroy({
+      where: {
+        id: id
+      }
+    })
 
+    console.log(activities)
+    res.send('se borro')
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+router.put('/update/:id', async (req, res) => {
+  try {
+    const { id } = req.params
+    const { season } = req.body
+    if(!id || !season)res.send('manda datos gil')
+
+    const activities = await Activity.update(
+      { season: season },
+      { where: { id: id } }
+    )
+    console.log(activities)
+    res.send('Actualizado')
+  } catch (error) {
+    console.log(error)
+  }
+})
 
 module.exports = router;
