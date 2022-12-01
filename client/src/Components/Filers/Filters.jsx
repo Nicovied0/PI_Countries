@@ -1,4 +1,5 @@
 import React from "react";
+import style from './Filters.module.css'
 
 import {
   UPWARD,
@@ -29,7 +30,8 @@ const Filters = ({
   areaSort
 }) => {
   return (
-    <div>
+    <div className={style.divFilters}>
+      <h3 className={style.h3Filer}>Filtert By</h3>
       <select
         onChange={(e) => {
           nameSort(e);
