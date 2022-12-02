@@ -23,7 +23,9 @@ const Paginate = ({ currentPage,countriesPerPage, countries, paginated }) => {
               </button>
             </li>
           ))}
-          {currentPage !== Math.ceil(countries / countriesPerPage ) ? <button className={styles.butonPagination} onClick={() => paginated(currentPage + 1)}>Next</button> : <button style={{visibility: "hidden"}}>Next</button>}
+          {currentPage !== Math.ceil(countries / countriesPerPage) 
+          ? ( countries > 1 ? <button className={styles.butonPagination} onClick={() => paginated(currentPage + 1)}>Next</button> : <button style={{visibility: "hidden"}}>Next</button> ) 
+          : <button style={{visibility: "hidden"}}>Next</button>}
       </ul>
     </div>
   );
