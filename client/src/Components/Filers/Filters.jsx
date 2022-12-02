@@ -1,5 +1,5 @@
 import React from "react";
-import style from './Filters.module.css'
+import style from "./Filters.module.css";
 
 import {
   UPWARD,
@@ -27,17 +27,17 @@ const Filters = ({
   handleFilterContinent,
   handleFilterActivity,
   handleFilterMaxTo,
-  areaSort
+  areaSort,
 }) => {
   return (
-    <div className={style.divFilters} >
+    <div className={style.divFilters}>
       <h3 className={style.h3Filer}>Filtert By</h3>
       <select
         onChange={(e) => {
           nameSort(e);
         }}
       >
-        <option disabled selected>
+        <option disabled selected defaultValue={null}>
           Order
         </option>
         <option value={UPWARD}> A-Z </option>
@@ -56,10 +56,11 @@ const Filters = ({
         <option value={MIN_POPULATION}>🡳 Min population</option>
       </select>
 
-      <select 
-       onChange={(e) => {
-        areaSort(e);
-      }}>
+      <select
+        onChange={(e) => {
+          areaSort(e);
+        }}
+      >
         <option disabled selected>
           Order By Area
         </option>
@@ -94,7 +95,7 @@ const Filters = ({
       {/* filters news */}
 
       <select onChange={(e) => handleFilterMaxTo(e)}>
-        <option disabled selected>
+        <option disabled selected defaultValue={null}>
           Countries with
         </option>
         <option value={MAX_TO}>🡱 100k population</option>

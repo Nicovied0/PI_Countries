@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./Paginate.module.css";
 
-const Paginate = ({ countriesPerPage, countries, paginated }) => {
+const Paginate = ({ currentPage,countriesPerPage, countries, paginated }) => {
   const pageNumber = [];
-  for (let i = 1; i < Math.ceil(countries / countriesPerPage); i++) {
+  for (let i = 1; i < Math.ceil(countries / countriesPerPage +1); i++) {
     pageNumber.push(i);
   }
   ///
@@ -11,6 +11,7 @@ const Paginate = ({ countriesPerPage, countries, paginated }) => {
   return (
     <div className={styles.container}>
       <ul className={styles.ul}>
+      {currentPage !== 1 ? <button onClick={() => paginated(currentPage -1)}>Back</button> : <button style={{visibility: "hidden"}}>Back</button>}
         {pageNumber &&
           pageNumber.map((number) => (
             <li key={number} className={styles.li}>
@@ -22,6 +23,7 @@ const Paginate = ({ countriesPerPage, countries, paginated }) => {
               </button>
             </li>
           ))}
+          {currentPage !== Math.ceil(countries / countriesPerPage ) ? <button onClick={() => paginated(currentPage + 1)}>Next</button> : <button style={{visibility: "hidden"}}>Next</button>}
       </ul>
     </div>
   );

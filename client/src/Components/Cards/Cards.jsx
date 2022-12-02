@@ -12,6 +12,7 @@ import {
   filterByActivity,
   filterMaxTo,
   orderByArea,
+  pageBack,
 } from "../../Redux/actions/index";
 import style from "./Cards.module.css";
 import Card from "../Card/Card";
@@ -26,19 +27,23 @@ export default function Cards() {
 
   const countries = useSelector((state) => state.countries); //mapStateToProps.
   const activities = useSelector((state) => state.activities);
+  var pagBack = useSelector((state) => state.pageBack);
   // console.log(countries.length);
 
   //Paginate
-  const [currentPage, setCurrentPage] = useState(1);
+  let [currentPage, setCurrentPage] = useState(1);
   const [countriesPerPage] = useState(10);
   const lastCountry =
     currentPage === 1 ? 9 : currentPage * countriesPerPage - 1;
   const firstCountry = currentPage === 1 ? 0 : lastCountry - countriesPerPage;
   const currentCountry = countries.slice(firstCountry, lastCountry);
   const [, setOrder] = useState(""); //state of ordenamient (name, population)
+  currentPage = pagBack
+  console.log(pagBack,"soy current")
 
   const paginated = (pageNumber) => {
     setCurrentPage(pageNumber);
+    dispatch(pageBack(pageNumber))
     window.scrollTo({ top: 0, behavior: "smooth" }); //SCROLL TO TOP, 
   };
 
@@ -47,6 +52,7 @@ export default function Cards() {
     e.preventDefault();
     dispatch(orderByName(e.target.value));
     setCurrentPage(1);
+    dispatch(pageBack(1))
     setOrder(`Ordering ${e.target.value}`);
     // console.log(setOrder,'soy order')
   }
@@ -56,6 +62,7 @@ export default function Cards() {
     e.preventDefault();
     dispatch(orderByPopulation(e.target.value));
     setCurrentPage(1);
+    dispatch(pageBack(1))
     setOrder(`Ordering ${e.target.value}`);
   }
 
@@ -63,12 +70,14 @@ export default function Cards() {
   function handleFilterContinent(e) {
     dispatch(filterByContinent(e.target.value));
     setCurrentPage(1);
+    dispatch(pageBack(1))
   }
 
   //Filter by Activities
   function handleFilterActivity(e) {
     dispatch(filterByActivity(e.target.value));
     setCurrentPage(1);
+    dispatch(pageBack(1))
   }
 
   ////////////////////////
@@ -76,12 +85,14 @@ export default function Cards() {
   function handleFilterMaxTo(e) {
     dispatch(filterMaxTo(e.target.value));
     setCurrentPage(1);
+    dispatch(pageBack(1))
   }
 
   function areaSort(e) {
     e.preventDefault();
     dispatch(orderByArea(e.target.value));
     setCurrentPage(1);
+    dispatch(pageBack(1))
     setOrder(`Ordering ${e.target.value}`);
   }
   ///////////////////////
@@ -92,6 +103,7 @@ export default function Cards() {
   useEffect(() => {
     dispatch(getCountries());
     dispatch(getActivities());
+    dispatch(pageBack(1))
     AOS.init();
     AOS.refresh();
   }, [dispatch]);
@@ -143,11 +155,13 @@ export default function Cards() {
       </div>
       <div className={style.container} data-aos="fade-right">
         <Paginate
+          currentPage={currentPage}
           countriesPerPage={countriesPerPage}
           countries={countries.length}
           paginated={paginated}
         />
       </div>
+      {console.log(Math.ceil(countries.length / countriesPerPage))}
     </div>
   );
 }

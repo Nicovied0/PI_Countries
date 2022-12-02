@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getCountriesByName,resetCountries } from "../../Redux/actions/index";
+import { getCountriesByName,resetCountries ,pageBack} from "../../Redux/actions/index";
 import style from "./SearchBar.module.css";
 
 function SearchBar({pages}) {
@@ -14,6 +14,7 @@ function SearchBar({pages}) {
     dispatch(getCountriesByName(search));
     setSearch("");
     pages(1) // setea la pag en 1
+    dispatch(pageBack(1))
   }
 
   function onChangeInput(e) {

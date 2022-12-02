@@ -51,5 +51,8 @@ export const RESET_COUNTRIES = "RESET_COUNTRIES"
 export const NEXT = "NEXT"
 export const PREVIUS = "PREVIUS"
 
+export const RESET_PAGE = "RESET_PAGE";
+export const PAGE_BACK = "PAGE_BACK";
+export const RESET_PAGE_POST = "RESET_PAGE_POST";
 
 

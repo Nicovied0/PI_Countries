@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { RESET_COUNTRIES, GET_ACTIVITIES, ORDER_BY_AREA, GET_COUNTRIES, GET_DETAILS, CLEAR_DETAILS, POST_ACTIVITIES, SEARCH_COUNTRIES, ORDER_BY_NAME, ORDER_BY_POPULATION, FILTER_BY_CONTINENT, FILTER_BY_ACTIVITIES, MAX_TO } from '../../Const/Const'
+import { RESET_PAGE, RESET_COUNTRIES, GET_ACTIVITIES, ORDER_BY_AREA, GET_COUNTRIES, GET_DETAILS, CLEAR_DETAILS, POST_ACTIVITIES, SEARCH_COUNTRIES, ORDER_BY_NAME, ORDER_BY_POPULATION, FILTER_BY_CONTINENT, FILTER_BY_ACTIVITIES, MAX_TO, RESET_PAGE_POST, PAGE_BACK } from '../../Const/Const'
 
 
 export function getCountries() {
@@ -131,4 +131,20 @@ export function postActivities(payload) {
   }
 }
 
+export function resetPage(){
+  return {
+    type:RESET_PAGE
+  }
+}
+export function resetPagePost(){
+  return{
+    type:RESET_PAGE_POST
+  }
+}
 
+export function pageBack(payload){
+  return{
+    type:PAGE_BACK,
+    payload
+  }
+}
