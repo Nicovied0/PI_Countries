@@ -11,7 +11,7 @@ const Paginate = ({ currentPage,countriesPerPage, countries, paginated }) => {
   return (
     <div className={styles.container}>
       <ul className={styles.ul}>
-      {currentPage !== 1 ? <button onClick={() => paginated(currentPage -1)}>Back</button> : <button style={{visibility: "hidden"}}>Back</button>}
+      {currentPage !== 1 ? <button className={styles.butonPagination} onClick={() => paginated(currentPage -1)}>Back</button> : <button style={{visibility: "hidden"}}>Back</button>}
         {pageNumber &&
           pageNumber.map((number) => (
             <li key={number} className={styles.li}>
@@ -23,7 +23,7 @@ const Paginate = ({ currentPage,countriesPerPage, countries, paginated }) => {
               </button>
             </li>
           ))}
-          {currentPage !== Math.ceil(countries / countriesPerPage ) ? <button onClick={() => paginated(currentPage + 1)}>Next</button> : <button style={{visibility: "hidden"}}>Next</button>}
+          {currentPage !== Math.ceil(countries / countriesPerPage ) ? <button className={styles.butonPagination} onClick={() => paginated(currentPage + 1)}>Next</button> : <button style={{visibility: "hidden"}}>Next</button>}
       </ul>
     </div>
   );

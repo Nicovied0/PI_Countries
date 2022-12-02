@@ -50,6 +50,11 @@ export function getCountriesByName(search) {
       })
     } catch {
       alert(`No country was found that includes "${search}".`)
+      let json = await axios.get('http://localhost:3001/countries')
+      return dispatch({
+        type: GET_COUNTRIES,
+        payload: json.data
+      });
     }
   }
 

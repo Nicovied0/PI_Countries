@@ -161,7 +161,7 @@ export default function Cards() {
           paginated={paginated}
         />
       </div>
-      {console.log(Math.ceil(countries.length / countriesPerPage))}
+      {/* {console.log(Math.ceil(countries.length / countriesPerPage))} */}
     </div>
   );
 }

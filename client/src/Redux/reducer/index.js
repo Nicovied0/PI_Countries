@@ -1,4 +1,4 @@
-import { RESET_PAGE,RESET_PAGE_POST, PAGE_BACK, RESET_COUNTRIES, GET_COUNTRIES, ORDER_BY_AREA, GET_DETAILS, CLEAR_DETAILS, GET_ACTIVITIES, POST_ACTIVITIES, SEARCH_COUNTRIES, ORDER_BY_NAME, UPWARD, MAX_POPULATION, ORDER_BY_POPULATION, FILTER_BY_CONTINENT, FILTER_BY_ACTIVITIES, MAX_TO, MAX_AREA } from '../../Const/Const'
+import { RESET_PAGE, RESET_PAGE_POST, PAGE_BACK, RESET_COUNTRIES, GET_COUNTRIES, ORDER_BY_AREA, GET_DETAILS, CLEAR_DETAILS, GET_ACTIVITIES, POST_ACTIVITIES, SEARCH_COUNTRIES, ORDER_BY_NAME, UPWARD, MAX_POPULATION, ORDER_BY_POPULATION, FILTER_BY_CONTINENT, FILTER_BY_ACTIVITIES, MAX_TO, MAX_AREA } from '../../Const/Const'
 
 
 const initialState = {
@@ -21,10 +21,21 @@ export default function rootReducer(state = initialState, action) {
       }
 
     case SEARCH_COUNTRIES:
-      return {
-        ...state,
-        countries: action.payload
+      let countries = state.countries
+      let allCountries = state.allCountries
+      if (countries.length !== []) {
+        return {
+          ...state,
+          countries: action.payload
+        }
+      } else {
+        return {
+          ...state,
+          countries: allCountries
+        }
       }
+
+
 
     case GET_DETAILS:
       return {
@@ -171,21 +182,21 @@ export default function rootReducer(state = initialState, action) {
       }
 
 
-      case RESET_PAGE:
-        return {
+    case RESET_PAGE:
+      return {
         ...state,
         countries: state.allCountries,
         pageBack: 1
       }
-  
-      case RESET_PAGE_POST: 
+
+    case RESET_PAGE_POST:
       return {
         ...state,
         countries: []
       }
-  
-      case PAGE_BACK:
-        return {
+
+    case PAGE_BACK:
+      return {
         ...state,
         pageBack: action.payload
       }
