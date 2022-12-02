@@ -6,7 +6,7 @@ const initialState = {
   allCountries: [],
   details: [],
   activities: [],
-  pagination: 1
+  pageBack: 1
 }
 
 
