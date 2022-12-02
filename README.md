@@ -44,14 +44,14 @@ Run the following commands in both the "api" folder and the "client" folder
 Deploy: https://pi-countries.vercel.app/
 
 <p align="center">
-  <img src="https://drive.google.com/file/d/1e3Mkb-78ucsoIzVrYY2G0c8NWu0JWCXL/view?usp=sharing" alt="Gif" />
+  <img src="https://ibb.co/zbH2ctJ" alt="Gif" />
 </p>
 <p align="center">
-  <img src="https://drive.google.com/file/d/1IrwxkiN8bcwXoknVFmBIimgMHbDDZc9K/view?usp=sharing" alt="Gif" />
+  <img src="https://ibb.co/ctKtddC" alt="Gif" />
 </p>
 <p align="center">
-  <img src="https://drive.google.com/file/d/1yRoPGW90x6mhJ61jT_L4BDmC9-dJwZKm/view?usp=sharing" alt="Gif" />
+  <img src="https://ibb.co/JH0W9X7" alt="Gif" />
 </p>
 <p align="center">
-  <img src="https://drive.google.com/file/d/1wPWLlKofnJZmJVvtVN4om9lWKWwYNqI3/view?usp=sharing" alt="Gif" />
+  <img src="https://ibb.co/nQtbwrr" alt="Gif" />
 </p>
