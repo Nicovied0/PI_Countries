@@ -48,6 +48,8 @@ export const MAX_AREA = 'MAX_AREA'
 export const MIN_AREA = 'MIN_AREA'
 
 export const RESET_COUNTRIES = "RESET_COUNTRIES"
+export const NEXT = "NEXT"
+export const PREVIUS = "PREVIUS"
 
 
 
